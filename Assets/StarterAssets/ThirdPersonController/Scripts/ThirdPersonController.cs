@@ -14,12 +14,6 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
-        public enum AnimationStyle
-        {
-            Human,
-            Wolf
-        }
-
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -67,10 +61,6 @@ namespace StarterAssets
 
         [Tooltip("What layers the character uses as ground")]
         public LayerMask GroundLayers;
-
-        [Header("Animation")]
-        [Tooltip("Human = Starter Assets. Wolf = Supercyan animal people (MoveSpeed parameter).")]
-        public AnimationStyle animationStyle = AnimationStyle.Wolf;
 
         [Header("Cinemachine")]
         [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
@@ -181,13 +171,6 @@ namespace StarterAssets
 
         private void AssignAnimationIDs()
         {
-            if (animationStyle == AnimationStyle.Wolf)
-            {
-                _animIDSpeed = Animator.StringToHash("MoveSpeed");
-                _animIDGrounded = Animator.StringToHash("Grounded");
-                return;
-            }
-
             _animIDSpeed = Animator.StringToHash("Speed");
             _animIDGrounded = Animator.StringToHash("Grounded");
             _animIDJump = Animator.StringToHash("Jump");
@@ -295,10 +278,7 @@ namespace StarterAssets
             if (_hasAnimator)
             {
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
-                if (animationStyle == AnimationStyle.Human)
-                {
-                    _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-                }
+                _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             }
         }
 
@@ -310,7 +290,7 @@ namespace StarterAssets
                 _fallTimeoutDelta = FallTimeout;
 
                 // update animator if using character
-                if (_hasAnimator && animationStyle == AnimationStyle.Human)
+                if (_hasAnimator)
                 {
                     _animator.SetBool(_animIDJump, false);
                     _animator.SetBool(_animIDFreeFall, false);
@@ -329,7 +309,7 @@ namespace StarterAssets
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
                     // update animator if using character
-                    if (_hasAnimator && animationStyle == AnimationStyle.Human)
+                    if (_hasAnimator)
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
@@ -351,9 +331,13 @@ namespace StarterAssets
                 {
                     _fallTimeoutDelta -= Time.deltaTime;
                 }
-                else if (_hasAnimator && animationStyle == AnimationStyle.Human)
+                else
                 {
-                    _animator.SetBool(_animIDFreeFall, true);
+                    // update animator if using character
+                    if (_hasAnimator)
+                    {
+                        _animator.SetBool(_animIDFreeFall, true);
+                    }
                 }
 
                 // if we are not grounded, do not jump
