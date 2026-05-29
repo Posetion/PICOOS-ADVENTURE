@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: e9e216b78f49ef143941b6161bd86cec
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342682
+  packageName: FS Swimming System
+  packageVersion: 1.0
+  assetPath: Assets/Fantacode Studios/Swimming System/Scripts/Utils/SwimmingDemoSceneManager.cs
+  uploadId: 831808

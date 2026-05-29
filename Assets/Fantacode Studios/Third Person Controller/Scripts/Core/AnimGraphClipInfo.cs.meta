@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: d900bd22de20ab0408e77c40d59ebcaa
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342682
+  packageName: FS Swimming System
+  packageVersion: 1.0
+  assetPath: Assets/Fantacode Studios/Third Person Controller/Scripts/Core/AnimGraphClipInfo.cs
+  uploadId: 831808

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: e4b6aaab4c4af484b8ab58a7bff811ca
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342682
+  packageName: FS Swimming System
+  packageVersion: 1.0
+  assetPath: Assets/Fantacode Studios/Swimming System/WaterEffects/URP Water Shader.shader
+  uploadId: 831808

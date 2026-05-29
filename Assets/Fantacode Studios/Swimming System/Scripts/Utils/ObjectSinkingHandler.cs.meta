@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 102f7c56c02a5ec429bee428d2e6ebf7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342682
+  packageName: FS Swimming System
+  packageVersion: 1.0
+  assetPath: Assets/Fantacode Studios/Swimming System/Scripts/Utils/ObjectSinkingHandler.cs
+  uploadId: 831808

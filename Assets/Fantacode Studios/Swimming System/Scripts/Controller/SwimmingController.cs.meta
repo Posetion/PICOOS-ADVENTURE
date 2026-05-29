@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 43178d71694c8304c90c4fa9eb541bd6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 342682
+  packageName: FS Swimming System
+  packageVersion: 1.0
+  assetPath: Assets/Fantacode Studios/Swimming System/Scripts/Controller/SwimmingController.cs
+  uploadId: 831808
