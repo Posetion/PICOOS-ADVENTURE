@@ -39,6 +39,10 @@ namespace StarterAssets
         [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
 
+        // DOUBLE JUMP: Custom height for your second jump
+        [Tooltip("The height of the second jump")]
+        public float DoubleJumpHeight = 1.2f;
+
         [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
         public float Gravity = -15.0f;
 
@@ -93,6 +97,11 @@ namespace StarterAssets
         // timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
+
+        // DOUBLE JUMP: Variable tracking
+        private int _jumpCount = 0;
+        private const int _maxJumps = 2; 
+        private float _doubleJumpDelayTimer = 0f;
 
         // animation IDs
         private int _animIDSpeed;
@@ -286,6 +295,10 @@ namespace StarterAssets
         {
             if (Grounded)
             {
+                // DOUBLE JUMP: Reset counts and timers when landing
+                _jumpCount = 0;
+                _doubleJumpDelayTimer = 0f;
+
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
 
@@ -307,6 +320,10 @@ namespace StarterAssets
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+
+                    // DOUBLE JUMP: Increment tracking values
+                    _jumpCount++;
+                    _doubleJumpDelayTimer = Time.time + 0.15f;
 
                     // update animator if using character
                     if (_hasAnimator)
@@ -340,7 +357,21 @@ namespace StarterAssets
                     }
                 }
 
-                // if we are not grounded, do not jump
+                // DOUBLE JUMP: Check for aerial jump input after the safety window passes
+                if (_input.jump && _jumpCount < _maxJumps && Time.time > _doubleJumpDelayTimer)
+                {
+                    _verticalVelocity = Mathf.Sqrt(DoubleJumpHeight * -2f * Gravity);
+                    _jumpCount++;
+
+                    if (_hasAnimator)
+                    {
+                        // Reset and force the Jump animation to replay instantly from frame 0
+                        _animator.SetBool(_animIDJump, false);
+                        _animator.Play(_animIDJump, 0, 0f);
+                    }
+                }
+
+                // Always clear input flag inside the airborne block
                 _input.jump = false;
             }
 
