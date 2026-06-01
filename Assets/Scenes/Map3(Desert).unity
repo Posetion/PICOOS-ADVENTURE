@@ -1318,6 +1318,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78dcf8bbe8d25324c8446797d59a4172, type: 3}
+--- !u!1001 &1764372577
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17.477543
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.9519987
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1284081684351368719, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3653428547231313198, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
+      propertyPath: m_Name
+      value: Surfer Van (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
 --- !u!1001 &1770777843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1750,3 +1807,4 @@ SceneRoots:
   - {fileID: 1192484137}
   - {fileID: 264507332}
   - {fileID: 1000261837}
+  - {fileID: 1764372577}
