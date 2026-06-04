@@ -18,7 +18,13 @@ public class Score : MonoBehaviour
         // Added a null check to prevent errors if GameManager is missing
         if (gameManager != null)
         {
-            tmp.text = $"Score: {gameManager.GetFruitScore()}";
+            tmp.text = $"Items Collected {gameManager.GetFruitScore()}/10";
+        }
+
+        if (gameManager.GetFruitScore() >= gameManager.GetTotalPlayerScore()) 
+        {
+            tmp.color = Color.green; // Change text color to green when the player has collected enough items
+
         }
     }
 }

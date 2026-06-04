@@ -47,6 +47,11 @@ public class GameManager : MonoBehaviour
             gameActive = false;
             Debug.Log("Time's Up!");
         }
+
+        if (currentTime < 1 && currentFruitScore < totalPlayerScore) 
+        {
+            Debug.Log("You have failed to collect the amount of food in time");
+        }
     }
 
     public int GetFruitScore()
@@ -60,12 +65,17 @@ public class GameManager : MonoBehaviour
         return Mathf.CeilToInt(currentTime);
     }
 
+    public int GetTotalPlayerScore()
+    {
+        return totalPlayerScore;
+    }
+
     public void Collect()
     {
         currentFruitScore += 1;
         Debug.Log($"Collected! You have {currentFruitScore} points.");
 
-        if (currentFruitScore >= totalPlayerScore) 
+        if (currentFruitScore >= totalPlayerScore && timerIsRunning) 
         {
             Win();
         }
