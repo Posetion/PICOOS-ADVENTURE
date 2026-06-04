@@ -64,5 +64,16 @@ public class GameManager : MonoBehaviour
     {
         currentFruitScore += 1;
         Debug.Log($"Collected! You have {currentFruitScore} points.");
+
+        if (currentFruitScore >= totalPlayerScore) 
+        {
+            Win();
+        }
+    }
+
+    private void Win() 
+    {
+        Debug.Log("You have won the game!");
+    
     }
 }
