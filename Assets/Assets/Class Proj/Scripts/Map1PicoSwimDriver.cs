@@ -75,14 +75,6 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
     void Awake()
     {
-        if (!Map1SceneGuard.IsMap1ForestScene(gameObject.scene))
-        {
-            DisableMap1SwimStack();
-            enabled = false;
-            return;
-        }
-
-        _map1Active = true;
         _locomotion = GetComponent<ThirdPersonController>();
         _input = GetComponent<StarterAssetsInputs>();
         _controller = GetComponent<CharacterController>();
@@ -104,24 +96,34 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
         CacheCameraTransform();
     }
 
-    void DisableMap1SwimStack()
+    void Start()
     {
-        var swimming = GetComponent<Swimming>();
-        if (swimming != null)
+        if (!Map1SceneGuard.IsMap1ForestScene(gameObject.scene))
         {
-            swimming.enabled = false;
+            enabled = false;
+            return;
         }
 
-        var scanner = GetComponent<EnvironmentScanner>();
-        if (scanner != null)
+        _map1Active = true;
+        RegisterWaterListeners();
+    }
+
+    void RegisterWaterListeners()
+    {
+        if (_swimming == null)
         {
-            scanner.enabled = false;
+            return;
         }
+
+        _swimming.OnEnterWater.RemoveListener(OnEnterWater);
+        _swimming.OnExitWater.RemoveListener(OnExitWater);
+        _swimming.OnEnterWater.AddListener(OnEnterWater);
+        _swimming.OnExitWater.AddListener(OnExitWater);
     }
 
     bool IsMap1Active()
     {
-        return _map1Active && Map1SceneGuard.IsMap1ForestScene(gameObject.scene);
+        return _map1Active;
     }
 
     void CacheCameraTransform()
@@ -157,8 +159,7 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
             return;
         }
 
-        _swimming.OnEnterWater.AddListener(OnEnterWater);
-        _swimming.OnExitWater.AddListener(OnExitWater);
+        RegisterWaterListeners();
     }
 
     void OnDisable()
