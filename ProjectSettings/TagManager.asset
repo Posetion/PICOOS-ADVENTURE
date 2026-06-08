@@ -11,6 +11,7 @@ TagManager:
   - Slide
   - NavmeshLink
   - NavmeshSurface
+  - Collectible
   layers:
   - Default
   - TransparentFX
