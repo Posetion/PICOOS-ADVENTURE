@@ -15,35 +15,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: -100
+    m_Value: 100
   tint:
     m_OverrideState: 1
-    m_Value: -54
---- !u!114 &-2062173605664801215
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fa0085f50d5e54f8144f766051a691, type: 3}
-  m_Name: FilmGrain
-  m_EditorClassIdentifier: 
-  active: 1
-  type:
-    m_OverrideState: 1
-    m_Value: 9
-  intensity:
-    m_OverrideState: 1
-    m_Value: 1
-  response:
-    m_OverrideState: 1
-    m_Value: 0
-  texture:
-    m_OverrideState: 0
-    m_Value: {fileID: 0}
+    m_Value: -100
 --- !u!114 &-780572710063463345
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -59,7 +34,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0.429
+    m_Value: 0.69
   xMultiplier:
     m_OverrideState: 0
     m_Value: 1
@@ -90,7 +65,6 @@ MonoBehaviour:
   - {fileID: 7771285632988526022}
   - {fileID: -7063316802540560643}
   - {fileID: -780572710063463345}
-  - {fileID: -2062173605664801215}
 --- !u!114 &2057778104125537573
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -112,10 +86,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0
   smoothness:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.01
   rounded:
     m_OverrideState: 1
     m_Value: 0
@@ -137,10 +111,10 @@ MonoBehaviour:
     m_Value: 0.5
   contrast:
     m_OverrideState: 1
-    m_Value: -91
+    m_Value: 100
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.4072403, g: 0.21223079, b: 0.07036011, a: 1}
+    m_Value: {r: 1, g: 0.18775956, b: 0.0141509175, a: 1}
   hueShift:
     m_OverrideState: 0
     m_Value: 0
@@ -168,7 +142,7 @@ MonoBehaviour:
     m_Value: 10
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 20
+    m_Value: 3.8
   gaussianMaxRadius:
     m_OverrideState: 0
     m_Value: 1
