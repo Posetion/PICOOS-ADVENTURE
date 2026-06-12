@@ -2,8 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Map1(Forest) only. Removes editor-only FS setup root objects that add Awake overhead on play.
-/// Self-disables outside Map1(Forest) so it cannot affect other scenes even if mis-wired.
+/// Map1(Forest) only. Aligns terrain physics and places Pico on the ground once at startup.
 /// </summary>
 [DefaultExecutionOrder(-1000)]
 public sealed class Map1SceneStartup : MonoBehaviour
@@ -25,7 +24,37 @@ public sealed class Map1SceneStartup : MonoBehaviour
 
         sRanForActiveScene = true;
         SceneManager.sceneUnloaded += _ => sRanForActiveScene = false;
-        RemoveFsSystemRootObjects(gameObject.scene);
+
+        Scene scene = gameObject.scene;
+        Map1ForestTerrainUtility.EnsureTerrainPhysicsAligned(scene);
+        RemoveFsSystemRootObjects(scene);
+        Physics.SyncTransforms();
+        PlaceAllPlayers(scene);
+    }
+
+    static void PlaceAllPlayers(Scene scene)
+    {
+        Map1PicoSwimDriver[] drivers = Object.FindObjectsByType<Map1PicoSwimDriver>(
+            FindObjectsInactive.Exclude,
+            FindObjectsSortMode.None);
+        for (int i = 0; i < drivers.Length; i++)
+        {
+            Map1PicoSwimDriver driver = drivers[i];
+            if (driver != null && driver.gameObject.scene == scene)
+            {
+                Map1ForestTerrainUtility.PlacePlayerOnTerrain(driver.gameObject, scene);
+            }
+        }
+
+        GameObject[] taggedPlayers = GameObject.FindGameObjectsWithTag("Player");
+        for (int i = 0; i < taggedPlayers.Length; i++)
+        {
+            GameObject player = taggedPlayers[i];
+            if (player != null && player.scene == scene)
+            {
+                Map1ForestTerrainUtility.PlacePlayerOnTerrain(player, scene);
+            }
+        }
     }
 
     static void RemoveFsSystemRootObjects(Scene scene)
