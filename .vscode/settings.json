@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "Lonly Wolf.sln",
+    "dotnet.defaultSolution": "Lonly Wolf.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }
