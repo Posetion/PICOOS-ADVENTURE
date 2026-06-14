@@ -9,8 +9,8 @@ using UnityEditor;
 #endif
 
 /// <summary>
-/// Map1(Forest) only. Keeps StarterAssets locomotion on land and drives Fantacode swim while in water.
-/// Self-disables outside Map1(Forest) so it cannot affect other scenes even if mis-wired.
+/// Map1(Forest) and Map2 (Cave) only. Keeps StarterAssets locomotion on land and drives
+/// Fantacode swim while in water. Self-disables outside those maps.
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class Map1PicoSwimDriver : MonoBehaviour
@@ -71,7 +71,7 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
     static readonly int AnimGroundedHash = Animator.StringToHash("Grounded");
     static readonly int AnimMotionSpeedHash = Animator.StringToHash("MotionSpeed");
 
-    bool _map1Active;
+    bool _swimMapActive;
 
     void Awake()
     {
@@ -98,13 +98,13 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
     void Start()
     {
-        if (!Map1SceneGuard.IsMap1ForestScene(gameObject.scene))
+        if (!Map1SceneGuard.IsMap1OrMap2Scene(gameObject.scene))
         {
             enabled = false;
             return;
         }
 
-        _map1Active = true;
+        _swimMapActive = true;
         RegisterWaterListeners();
     }
 
@@ -121,9 +121,9 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
         _swimming.OnExitWater.AddListener(OnExitWater);
     }
 
-    bool IsMap1Active()
+    bool IsSwimMapActive()
     {
-        return _map1Active;
+        return _swimMapActive;
     }
 
     void CacheCameraTransform()
@@ -154,7 +154,7 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
     void OnEnable()
     {
-        if (!IsMap1Active() || _swimming == null)
+        if (!IsSwimMapActive() || _swimming == null)
         {
             return;
         }
@@ -175,7 +175,7 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
     void Update()
     {
-        if (!IsMap1Active() || _swimming == null || _damagable == null)
+        if (!IsSwimMapActive() || _swimming == null || _damagable == null)
         {
             return;
         }
@@ -193,7 +193,7 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!IsMap1Active())
+        if (!IsSwimMapActive())
         {
             return;
         }
@@ -302,7 +302,7 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
     void OnExitWater()
     {
-        if (!IsMap1Active())
+        if (!IsSwimMapActive())
         {
             return;
         }

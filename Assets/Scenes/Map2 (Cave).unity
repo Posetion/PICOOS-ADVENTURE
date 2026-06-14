@@ -6979,9 +6979,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: CaveVariant
       objectReference: {fileID: 0}
+    - target: {fileID: 3812663825642392728, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
+      propertyPath: m_SlopeLimit
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812663825642392728, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
+      propertyPath: m_StepOffset
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3812663825642392729, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
       propertyPath: GroundLayers.m_Bits
-      value: 4294967295
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 3833082448915124793, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
       propertyPath: m_IsActive
@@ -7038,6 +7046,22 @@ PrefabInstance:
     - target: {fileID: 5592049600716130082, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763263727887924236, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
+      propertyPath: normalSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763263727887924236, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
+      propertyPath: fastSwimSpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763263727887924236, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
+      propertyPath: underWaterSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763263727887924236, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
+      propertyPath: exitCoastDuration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6163998396085169859, guid: 6f63040bca9ffba498c50decb217ea28, type: 3}
       propertyPath: m_IsActive
@@ -15243,6 +15267,10 @@ PrefabInstance:
     - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: m_Name
       value: WaterBlock_50m
+      objectReference: {fileID: 0}
+    - target: {fileID: 1507636620937791836, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1507636620937791839, guid: 7097ba7ba649e1f41bba232312bdcbd8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -28203,8 +28231,140 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 1429878381311212347, guid: b0f3179147b9bc8418f9e54f131f2259, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1849050468168482752, guid: b0f3179147b9bc8418f9e54f131f2259, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101438040}
+    - targetCorrespondingSourceObject: {fileID: 1849050468168482752, guid: b0f3179147b9bc8418f9e54f131f2259, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101438041}
+    - targetCorrespondingSourceObject: {fileID: 1849050468168482752, guid: b0f3179147b9bc8418f9e54f131f2259, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101438042}
+    - targetCorrespondingSourceObject: {fileID: 1849050468168482752, guid: b0f3179147b9bc8418f9e54f131f2259, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2101438043}
   m_SourcePrefab: {fileID: 100100000, guid: b0f3179147b9bc8418f9e54f131f2259, type: 3}
+--- !u!114 &2101438040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101438044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7044654f396fbb44c9d67f8e72b1f267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 100
+  <MaxBreath>k__BackingField: 100
+  canBeDamagedBy: 0
+  OnDeadEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2101438041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101438044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 790464fff7e4b964994dec7090824467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heightRayLength: 4
+  obstacleCheckRange: 0.7
+  ledgeHeightThreshold: 1
+  <ObstacleLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 1
+  <LedgeLayer>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 1
+--- !u!114 &2101438042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101438044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad9a5ed8719e7d242b107f25be512b92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enableDive: 0
+  swimOffset: 1.33
+  headOffset: 0.15
+  maxDiveHeight: 50
+  rippleEffectPrefab: {fileID: 4485463462545363934, guid: 84c8465b48850e7478352b4e494e4e17, type: 3}
+  foamEffectPrefab: {fileID: 2757306275643497356, guid: bc9165fac1f22b74db2c2238160b3f46, type: 3}
+  bubbleEffectPrefab: {fileID: 0}
+  smallSplashAudioClip: {fileID: 8300000, guid: 3fcefc2718240a3499e1868fa3f5dcee, type: 3}
+  bigSplashAudioClip: {fileID: 8300000, guid: 0c5c53f2a89f7aa438cfaece68019478, type: 3}
+  bigSplashThreshold: 5
+  climbUpFromWaterAudioClip: {fileID: 8300000, guid: bc5063223117cc243a44e56edcc6937c, type: 3}
+  handSplashAudioClip:
+  - {fileID: 8300000, guid: e0762537aac5e574a938b47339965312, type: 3}
+  underwaterSwimAudioClip:
+  - {fileID: 8300000, guid: 5e9f2847ff474a44a86799760d6fb8d4, type: 3}
+  OnEnterWater:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitWater:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnterUnderWater:
+    m_PersistentCalls:
+      m_Calls: []
+  OnExitUnderWater:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartDive:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEndDive:
+    m_PersistentCalls:
+      m_Calls: []
+  OnClimbupFromWater:
+    m_PersistentCalls:
+      m_Calls: []
+  ClimbupFromWaterCompleted:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2101438043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101438044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9d0c1b2a3f4657b9c8d7e6f5a4321b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swimAnimatorAsset: {fileID: 9100000, guid: ca9310e6e0fcecc46891a68d5861d102, type: 2}
+  normalSpeed: 2
+  fastSwimSpeed: 4
+  underWaterSpeed: 3
+  rotationSpeed: 100
+  moveDownKey: 99
+  moveUpKey: 32
+  exitCoastDuration: 0.8
+  exitAnimatorCrossfade: 0.3
+  exitCapsuleBlendDuration: 0.75
+  exitMomentumRetain: 0.7
+  exitLiftSpeed: 0.85
+  exitMinCoastSpeed: 0.35
+--- !u!1 &2101438044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1849050468168482752, guid: b0f3179147b9bc8418f9e54f131f2259, type: 3}
+  m_PrefabInstance: {fileID: 2101438038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2103192153
 GameObject:
   m_ObjectHideFlags: 0

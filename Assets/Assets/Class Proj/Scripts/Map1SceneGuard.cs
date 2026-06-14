@@ -8,6 +8,8 @@ public static class Map1SceneGuard
 {
     public const string SceneName = "Map1(Forest)";
     public const string SceneAssetPath = "Assets/Scenes/Map1(Forest).unity";
+    public const string Map2SceneName = "Map2 (Cave)";
+    public const string Map2SceneAssetPath = "Assets/Scenes/Map2 (Cave).unity";
 
     public static bool IsActiveMap1Forest()
     {
@@ -33,5 +35,31 @@ public static class Map1SceneGuard
         }
 
         return false;
+    }
+
+    public static bool IsMap2CaveScene(Scene scene)
+    {
+        if (!scene.IsValid())
+        {
+            return false;
+        }
+
+        if (scene.name == Map2SceneName)
+        {
+            return true;
+        }
+
+        if (!string.IsNullOrEmpty(scene.path))
+        {
+            return scene.path.Replace('\\', '/')
+                .EndsWith(Map2SceneAssetPath, System.StringComparison.OrdinalIgnoreCase);
+        }
+
+        return false;
+    }
+
+    public static bool IsMap1OrMap2Scene(Scene scene)
+    {
+        return IsMap1ForestScene(scene) || IsMap2CaveScene(scene);
     }
 }
