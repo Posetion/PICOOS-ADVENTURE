@@ -784,22 +784,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerArmature Variant 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2388744377254465107, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388744377254465107, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388744377254465113, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_SlopeLimit
-      value: 65
-      objectReference: {fileID: 0}
-    - target: {fileID: 2388744377254465113, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_StepOffset
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 3057195338692990185, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.75
@@ -840,58 +824,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5129111119771183142, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5129111119771183142, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.72
-      objectReference: {fileID: 0}
-    - target: {fileID: 7980088449891948723, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.13471495
-      objectReference: {fileID: 0}
-    - target: {fileID: 7980088449891948723, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.3750002
-      objectReference: {fileID: 0}
-    - target: {fileID: 7980088449891948723, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.6942902
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070721695290367679, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.1347143
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070721695290367679, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.3750001
-      objectReference: {fileID: 0}
-    - target: {fileID: 8070721695290367679, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.6942906
-      objectReference: {fileID: 0}
-    - target: {fileID: 8947999203609607688, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      propertyPath: m_RenderPostProcessing
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2388744377254465107, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1888000002}
-    - targetCorrespondingSourceObject: {fileID: 2388744377254465107, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1888000003}
-    - targetCorrespondingSourceObject: {fileID: 2388744377254465107, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1888000004}
-    - targetCorrespondingSourceObject: {fileID: 2388744377254465107, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1888000005}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
 --- !u!1 &601446493
 GameObject:
@@ -1043,7 +979,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec6fc26652c7e248b6264d8f0ce6b52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1688227572}
 --- !u!1 &608566962
 GameObject:
   m_ObjectHideFlags: 1
@@ -1395,7 +1330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6af213881ec4e24abbd3d0a0ee81984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 1688227572}
 --- !u!114 &981275901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2593,13 +2527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6059f605a2afd4f9ea98d57ab67e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalPlayerScore: 10
-  totalTimeLimit: 60
-  currentFruitScore: 0
-  currentTime: 60
-  gameActive: 1
-  canCompleteLevelFlag: 0
-  timerIsRunning: 1
 --- !u!114 &1688227573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2879,126 +2806,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5bb08df7706f4724a2d2fbb289b847f, type: 3}
---- !u!1 &1888000001 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2388744377254465107, guid: 10bf553363dccd94195737cf6dbee451, type: 3}
-  m_PrefabInstance: {fileID: 578851677}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1888000002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888000001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7044654f396fbb44c9d67f8e72b1f267, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 100
-  <MaxBreath>k__BackingField: 100
-  canBeDamagedBy: 0
-  OnDeadEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1888000003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888000001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 790464fff7e4b964994dec7090824467, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heightRayLength: 4
-  obstacleCheckRange: 0.7
-  ledgeHeightThreshold: 1
-  <ObstacleLayer>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 1
-  <LedgeLayer>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 1
---- !u!114 &1888000004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888000001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9a5ed8719e7d242b107f25be512b92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableDive: 0
-  swimOffset: 1.33
-  headOffset: 0.15
-  maxDiveHeight: 50
-  rippleEffectPrefab: {fileID: 4485463462545363934, guid: 84c8465b48850e7478352b4e494e4e17, type: 3}
-  foamEffectPrefab: {fileID: 2757306275643497356, guid: bc9165fac1f22b74db2c2238160b3f46, type: 3}
-  bubbleEffectPrefab: {fileID: 0}
-  smallSplashAudioClip: {fileID: 8300000, guid: 3fcefc2718240a3499e1868fa3f5dcee, type: 3}
-  bigSplashAudioClip: {fileID: 8300000, guid: 0c5c53f2a89f7aa438cfaece68019478, type: 3}
-  bigSplashThreshold: 5
-  climbUpFromWaterAudioClip: {fileID: 8300000, guid: bc5063223117cc243a44e56edcc6937c, type: 3}
-  handSplashAudioClip:
-  - {fileID: 8300000, guid: e0762537aac5e574a938b47339965312, type: 3}
-  underwaterSwimAudioClip:
-  - {fileID: 8300000, guid: 5e9f2847ff474a44a86799760d6fb8d4, type: 3}
-  OnEnterWater:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExitWater:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEnterUnderWater:
-    m_PersistentCalls:
-      m_Calls: []
-  OnExitUnderWater:
-    m_PersistentCalls:
-      m_Calls: []
-  OnStartDive:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEndDive:
-    m_PersistentCalls:
-      m_Calls: []
-  OnClimbupFromWater:
-    m_PersistentCalls:
-      m_Calls: []
-  ClimbupFromWaterCompleted:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &1888000005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1888000001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9d0c1b2a3f4657b9c8d7e6f5a4321b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swimAnimatorAsset: {fileID: 9100000, guid: ca9310e6e0fcecc46891a68d5861d102, type: 2}
-  normalSpeed: 2
-  fastSwimSpeed: 4
-  underWaterSpeed: 3
-  rotationSpeed: 100
-  moveDownKey: 99
-  moveUpKey: 32
-  exitCoastDuration: 0.8
-  exitAnimatorCrossfade: 0.3
-  exitCapsuleBlendDuration: 0.75
-  exitMomentumRetain: 0.7
-  exitLiftSpeed: 0.85
-  exitMinCoastSpeed: 0.35
 --- !u!1 &1986444413
 GameObject:
   m_ObjectHideFlags: 0
