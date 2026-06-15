@@ -9,8 +9,8 @@ using UnityEditor;
 #endif
 
 /// <summary>
-/// Map1(Forest) and Map2 (Cave) only. Keeps StarterAssets locomotion on land and drives
-/// Fantacode swim while in water. Self-disables outside those maps.
+/// Map1(Forest), Map2 (Cave), and Map3(Desert) only. Keeps StarterAssets locomotion on
+/// land and drives Fantacode swim while in water. Self-disables outside those maps.
 /// </summary>
 [DisallowMultipleComponent]
 public sealed class Map1PicoSwimDriver : MonoBehaviour
@@ -34,6 +34,10 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
     [SerializeField] float exitMomentumRetain = 0.7f;
     [SerializeField] float exitLiftSpeed = 0.85f;
     [SerializeField] float exitMinCoastSpeed = 0.35f;
+
+    [Header("Enter water behavior")]
+    [SerializeField] float enterSurfaceSnapDuration = 0.45f;
+    [SerializeField] float enterSurfaceRiseSpeed = 4.5f;
 
     ThirdPersonController _locomotion;
     StarterAssetsInputs _input;
@@ -62,6 +66,8 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
     Coroutine _exitTransitionRoutine;
     bool _isExitingWater;
     bool _exitAnimatorBlended;
+    bool _surfaceSnapActive;
+    float _surfaceSnapEndTime;
     Vector3 _exitMoveDir;
     float _exitMoveSpeed;
     MethodInfo _cameraRotationMethod;
@@ -98,7 +104,7 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
     void Start()
     {
-        if (!Map1SceneGuard.IsMap1OrMap2Scene(gameObject.scene))
+        if (!Map1SceneGuard.IsMap1OrMap2OrMap3Scene(gameObject.scene))
         {
             enabled = false;
             return;
@@ -282,6 +288,8 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
         _isExitingWater = false;
         _exitAnimatorBlended = false;
+        _surfaceSnapActive = true;
+        _surfaceSnapEndTime = Time.time + enterSurfaceSnapDuration;
         _velocity = Vector3.zero;
         _currentMoveSpeed = 0f;
 
@@ -312,6 +320,7 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
             StopCoroutine(_exitTransitionRoutine);
         }
 
+        _surfaceSnapActive = false;
         CacheSwimCapsuleDimensions();
         RestoreSwimCapsuleDimensions();
 
@@ -524,6 +533,23 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
             0.1f,
             _waterMask,
             QueryTriggerInteraction.Collide);
+
+        if (_surfaceSnapActive)
+        {
+            bool snapExpired = Time.time >= _surfaceSnapEndTime;
+            if (!headUnderWater || snapExpired)
+            {
+                _surfaceSnapActive = false;
+            }
+            else
+            {
+                _swimming.MoveAmount = 0f;
+                _velocity = Vector3.zero;
+                _controller.Move(Vector3.up * enterSurfaceRiseSpeed * Time.deltaTime);
+                _swimming.UpdateSwimmingState();
+                return;
+            }
+        }
 
         float animSwimSpeed = _animator.GetFloat(AnimatorParameters.SwimSpeed);
         if (!headUnderWater || inputVector == Vector3.zero)
