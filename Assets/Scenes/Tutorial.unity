@@ -3796,6 +3796,8 @@ MonoBehaviour:
   exitMomentumRetain: 0.7
   exitLiftSpeed: 0.85
   exitMinCoastSpeed: 0.35
+  enterSurfaceSnapDuration: 0.45
+  enterSurfaceRiseSpeed: 4.5
 --- !u!114 &646711176
 MonoBehaviour:
   m_ObjectHideFlags: 0
