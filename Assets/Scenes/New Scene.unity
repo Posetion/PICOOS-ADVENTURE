@@ -496,6 +496,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeedUp (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3039873901811958652, guid: 7775824456b46604f968dd5c0eef977e, type: 3}
+      propertyPath: collectedVFX
+      value: 
+      objectReference: {fileID: 1141330259687333425, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
     - target: {fileID: 4592369440394547551, guid: 7775824456b46604f968dd5c0eef977e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 638.08026
