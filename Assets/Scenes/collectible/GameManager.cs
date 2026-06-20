@@ -67,7 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void AddCollectible()
     {
-        currentFruitScore++;
+        currentFruitScore += 1;
 
         Debug.Log("Food Collected" + currentFruitScore + "/" + totalFruitScore);
         if (currentFruitScore >= totalFruitScore)
