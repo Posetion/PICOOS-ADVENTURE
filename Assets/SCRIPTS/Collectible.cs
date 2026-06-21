@@ -1,0 +1,79 @@
+using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
+
+public class Collectible : MonoBehaviour
+{
+    private bool collected = false; // Prevent double collection
+
+
+    public GameManager GameManager;
+    [Header("Visual Feedback")]
+    public float destroyDelay = 0.5f; // Delay before destroying the collectible after collection45=-
+    public GameObject[] collectibleModels;
+    public ParticleSystem collectedVFX;
+
+
+    public UnityEvent OnCollectedEvent;
+
+    private void Start()
+    {
+        // Make sure the collider is a trigger so the wolf passes through it
+        Collider col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.isTrigger = true;
+        }
+
+        int index = Random.Range(0, collectibleModels.Length);
+
+
+        foreach (GameObject model in collectibleModels)
+        {
+            model.SetActive(false);
+        }
+
+        collectibleModels[index].gameObject.SetActive(true);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Only the player can collect, and only once
+        if (other.gameObject.CompareTag("Player") && !collected)
+        {
+            Collect();
+        }
+    }
+
+    private void Collect()
+    {
+
+        if (AudioManager.Instance == null)
+        {
+            Debug.LogError("AudioManager Instance is NULL!");
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX("Collect");
+        }
+        collected = true;
+        if (GameManager.instance != null)
+        {
+            GameManager.instance.AddCollectible();
+        }
+
+
+        if (collectedVFX != null)
+        {
+            Instantiate(collectedVFX, transform.position, Quaternion.identity);
+        }
+
+
+        OnCollectedEvent.Invoke();
+
+        AudioManager.Instance.PlaySFX("Collect");
+
+        Destroy(gameObject);
+    }
+
+}

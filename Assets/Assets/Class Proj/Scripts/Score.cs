@@ -1,4 +1,4 @@
-using TMPro;
+/*using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
@@ -28,3 +28,4 @@ public class Score : MonoBehaviour
         }
     }
 }
+*/

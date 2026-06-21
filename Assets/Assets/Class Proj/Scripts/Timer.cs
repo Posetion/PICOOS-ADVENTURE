@@ -1,4 +1,4 @@
-using TMPro;
+/*using TMPro;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -20,5 +20,5 @@ public class Timer : MonoBehaviour
 }
 
 
-
+*/
 

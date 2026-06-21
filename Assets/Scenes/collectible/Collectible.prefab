@@ -94,9 +94,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4322226167225798776}
-  - component: {fileID: 7524774913882363492}
   - component: {fileID: 7649843346648914259}
   - component: {fileID: 7603487703511793098}
+  - component: {fileID: 2274195992876872452}
   m_Layer: 0
   m_Name: Collectible
   m_TagString: Collectible
@@ -120,58 +120,6 @@ Transform:
   - {fileID: 6746703537782506956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7524774913882363492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3844585793578360437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1522dbc4cb9c3854d94aa0e4faac7cb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
-  destroyDelay: 0.5
-  collectibleModels:
-  - {fileID: 5369946669130121869}
-  - {fileID: 4649536241557497384}
-  - {fileID: 7309038898392291581}
-  - {fileID: 2428472010338621016}
-  - {fileID: 5978879509211956788}
-  - {fileID: 60872146519881954}
-  - {fileID: 2300005440629594239}
-  - {fileID: 3549438537126182369}
-  - {fileID: 7827254771590041396}
-  - {fileID: 7561840191582857501}
-  - {fileID: 8580275666756768594}
-  - {fileID: 2260305829561101501}
-  - {fileID: 7060621273083657492}
-  - {fileID: 968389512533318541}
-  - {fileID: 9045921736448190774}
-  - {fileID: 762529723189300083}
-  - {fileID: 1097647416837742691}
-  - {fileID: 0}
-  - {fileID: 8369942625259899215}
-  - {fileID: 6618139833605876231}
-  - {fileID: 0}
-  - {fileID: 1403576556874585061}
-  - {fileID: 2994378679757147823}
-  - {fileID: 7239729938198083270}
-  - {fileID: 2680280152093175122}
-  - {fileID: 3041740214484700125}
-  - {fileID: 2864397250198857336}
-  - {fileID: 8493368171986542714}
-  - {fileID: 7940036042066127584}
-  - {fileID: 4022296982425440731}
-  - {fileID: 3912726076152849788}
-  - {fileID: 9029420855100662789}
-  - {fileID: 3941806985881712048}
-  collectedVFX: {fileID: 9163842254555092113, guid: 54ae0b9b2c19fb74ab48cd8e29dd0b2b, type: 3}
-  OnCollectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &7649843346648914259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -215,6 +163,56 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2274195992876872452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844585793578360437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d69375ccc0dee4eb45dd3891a35ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
+  destroyDelay: 0.5
+  collectibleModels:
+  - {fileID: 5369946669130121869}
+  - {fileID: 4649536241557497384}
+  - {fileID: 7309038898392291581}
+  - {fileID: 2428472010338621016}
+  - {fileID: 5978879509211956788}
+  - {fileID: 60872146519881954}
+  - {fileID: 2300005440629594239}
+  - {fileID: 3549438537126182369}
+  - {fileID: 7827254771590041396}
+  - {fileID: 7561840191582857501}
+  - {fileID: 8580275666756768594}
+  - {fileID: 7060621273083657492}
+  - {fileID: 968389512533318541}
+  - {fileID: 2260305829561101501}
+  - {fileID: 9045921736448190774}
+  - {fileID: 762529723189300083}
+  - {fileID: 1097647416837742691}
+  - {fileID: 8369942625259899215}
+  - {fileID: 6618139833605876231}
+  - {fileID: 1403576556874585061}
+  - {fileID: 2994378679757147823}
+  - {fileID: 7239729938198083270}
+  - {fileID: 2680280152093175122}
+  - {fileID: 3041740214484700125}
+  - {fileID: 2864397250198857336}
+  - {fileID: 8493368171986542714}
+  - {fileID: 7940036042066127584}
+  - {fileID: 4022296982425440731}
+  - {fileID: 3912726076152849788}
+  - {fileID: 9029420855100662789}
+  - {fileID: 3941806985881712048}
+  collectedVFX: {fileID: 9163842254555092113, guid: 54ae0b9b2c19fb74ab48cd8e29dd0b2b, type: 3}
+  OnCollectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &175059172198713083
 PrefabInstance:
   m_ObjectHideFlags: 0

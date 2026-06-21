@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4592369440394547551}
-  - component: {fileID: 3039873901811958652}
   - component: {fileID: 5393340933039789677}
+  - component: {fileID: 816626071926858172}
   m_Layer: 0
   m_Name: SpeedUp
   m_TagString: Untagged
@@ -34,28 +34,6 @@ Transform:
   - {fileID: 3742956283181880212}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3039873901811958652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 712386777909930518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fed6314f031a3744b4c16990333b02e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemEffect: 0
-  GameManager: {fileID: 0}
-  destroyDelay: 0.5
-  collectibleModels: []
-  collectedVFX: {fileID: 1141330259687333425, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
-  speedMultiplier: 1.5
-  effectDuration: 5
-  OnCollectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &5393340933039789677
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -77,6 +55,28 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &816626071926858172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712386777909930518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7775fbb7a35985d44a78c336949e494c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemEffect: 0
+  GameManager: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
+  destroyDelay: 0.5
+  collectibleModels: []
+  collectedVFX: {fileID: 1141330259687333425, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
+  speedMultiplier: 1.75
+  effectDuration: 15
+  OnCollectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &8146486958081624300
 PrefabInstance:
   m_ObjectHideFlags: 0

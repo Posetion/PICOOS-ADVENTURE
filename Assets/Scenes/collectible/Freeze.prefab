@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1743837769053282437}
-  - component: {fileID: 6311532356406636028}
   - component: {fileID: 9144686180467455089}
   - component: {fileID: 8960568028372293951}
+  - component: {fileID: 6359658580629742466}
   m_Layer: 0
   m_Name: Freeze
   m_TagString: Untagged
@@ -39,31 +39,6 @@ Transform:
   - {fileID: 971623077659412029}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6311532356406636028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661326980203649768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c369a4099cd594a9e551209caec9a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameManager: {fileID: 0}
-  destroyDelay: 0.5
-  collectibleModels:
-  - {fileID: 1021319349908505139}
-  - {fileID: 375705614389145361}
-  - {fileID: 5526331526008607419}
-  - {fileID: 2649024263548997276}
-  - {fileID: 445916450067471495}
-  collectedVFX: {fileID: 5112403345868107899, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
-  freezeDuration: 3
-  OnCollectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!65 &9144686180467455089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -107,6 +82,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6359658580629742466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661326980203649768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccbfd7c17ab0c2f4d9ece4daf6f5d8cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameManager: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
+  destroyDelay: 0.5
+  collectibleModels:
+  - {fileID: 1021319349908505139}
+  - {fileID: 375705614389145361}
+  - {fileID: 5526331526008607419}
+  - {fileID: 2649024263548997276}
+  - {fileID: 445916450067471495}
+  collectedVFX: {fileID: 5112403345868107899, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
+  freezeDuration: 3
+  OnCollectedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1395308689050907191
 PrefabInstance:
   m_ObjectHideFlags: 0
