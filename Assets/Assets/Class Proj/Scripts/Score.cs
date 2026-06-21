@@ -1,4 +1,4 @@
-/*using TMPro;
+using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
@@ -21,11 +21,10 @@ public class Score : MonoBehaviour
             tmp.text = $"Items Collected {gameManager.GetFruitScore()}/10";
         }
 
-        if (gameManager.GetFruitScore() >= gameManager.GetTotalPlayerScore()) 
+        if (gameManager.GetFruitScore() >= gameManager.GetFruitScore()) 
         {
             tmp.color = Color.green; // Change text color to green when the player has collected enough items
 
         }
     }
 }
-*/
