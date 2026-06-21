@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -75,6 +76,16 @@ public class GameManager : MonoBehaviour
             Debug.Log("You have collected all the food");
         }
 
+    }
+
+    public int GetFruitScore()
+    {
+        return currentFruitScore;
+    }
+
+    public int GetTime()
+    {
+        return Mathf.CeilToInt(currentTime);
     }
 
 
