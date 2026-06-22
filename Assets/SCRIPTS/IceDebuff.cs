@@ -70,7 +70,7 @@ public class IceDebuff : MonoBehaviour
         {
             _ = StartFreezeTimerAsync(player, freezeDuration);
         }
-
+        AudioManager.Instance.PlaySFX("Freeze");
         // Destroys the collectible instantly on collection!
         Destroy(gameObject);
     }

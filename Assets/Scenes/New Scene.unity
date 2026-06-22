@@ -2515,12 +2515,20 @@ PrefabInstance:
       value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4751741773652462599, guid: fbe3632ddeebc7e4abffc24bbc65f170, type: 3}
+      propertyPath: soundEffects.Array.data[1].pitchMax
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751741773652462599, guid: fbe3632ddeebc7e4abffc24bbc65f170, type: 3}
       propertyPath: soundEffects.Array.data[1].pitchMin
-      value: 0.8
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751741773652462599, guid: fbe3632ddeebc7e4abffc24bbc65f170, type: 3}
+      propertyPath: soundEffects.Array.data[2].pitchMax
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 4751741773652462599, guid: fbe3632ddeebc7e4abffc24bbc65f170, type: 3}
       propertyPath: soundEffects.Array.data[2].pitchMin
-      value: 0.8
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6422117334456862341, guid: fbe3632ddeebc7e4abffc24bbc65f170, type: 3}

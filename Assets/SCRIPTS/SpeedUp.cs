@@ -78,7 +78,7 @@ public class CollectibleEffect : MonoBehaviour
         {
             _ = StartEffectTimerAsync(player, itemEffect, speedMultiplier, effectDuration);
         }
-
+        AudioManager.Instance.PlaySFX("speedUp");
         // This object is now instantly removed from the scene Hierarchy!
         Destroy(gameObject);
     }
