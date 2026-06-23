@@ -1,31 +1,21 @@
-/*using TMPro;
+using TMPro;
 using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    // Changed from TextMeshPro to TextMeshProUGUI for UI Canvas compatibility
-    private TextMeshProUGUI tmp;
 
-    public GameManager gameManager;
+    public GameManager instance;
 
-    private void Awake()
+    public TextMeshProUGUI scoreText;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
     {
-        tmp = GetComponent<TextMeshProUGUI>();
+        scoreText = GetComponent<TextMeshProUGUI>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        // Added a null check to prevent errors if GameManager is missing
-        if (gameManager != null)
-        {
-            tmp.text = $"Items Collected {gameManager.GetFruitScore()}/10";
-        }
-
-        if (gameManager.GetFruitScore() >= gameManager.GetFruitScore()) 
-        {
-            tmp.color = Color.green; // Change text color to green when the player has collected enough items
-
-        }
+        scoreText.text = $"Food {instance.GetCurrentFood()}/{instance.GetTotalFood()}";
     }
 }
-*/
