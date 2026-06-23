@@ -103,7 +103,7 @@ MonoBehaviour:
   - {fileID: 2649024263548997276}
   - {fileID: 445916450067471495}
   collectedVFX: {fileID: 5112403345868107899, guid: 6f34ef0d986e9db4199cf75805f79753, type: 3}
-  freezeDuration: 3
+  freezeDuration: 5
   OnCollectedEvent:
     m_PersistentCalls:
       m_Calls: []

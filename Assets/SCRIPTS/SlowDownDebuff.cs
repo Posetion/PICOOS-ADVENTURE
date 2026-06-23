@@ -73,7 +73,7 @@ public class SlowDownDebuff : MonoBehaviour
             // We do NOT use 'await' here because we want this method to finish instantly
             _ = StartSlowTimerAsync(player, speedMultiplier, slowDuration);
         }
-
+        AudioManager.Instance.PlaySFX("explosion");
         // This object is now instantly removed from the scene Hierarchy!
         Destroy(gameObject);
     }
