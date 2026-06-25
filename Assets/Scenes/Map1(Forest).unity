@@ -7835,6 +7835,76 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6a512d95615f534cbe31aba1aaa354c, type: 3}
+--- !u!1 &1250127020
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1250127025}
+  - component: {fileID: 1250127024}
+  - component: {fileID: 1250127023}
+  m_Layer: 0
+  m_Name: CursedZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1250127023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250127020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb7cd114939e4823ad6a32c2e63e831, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMusic: {fileID: 8300000, guid: a7178fae479e940d48d92cf6c45d15a0, type: 3}
+  scaryMusic: {fileID: 8300000, guid: c6da116d3795a42d0bf5b15967482c9d, type: 3}
+  fadeDuration: 0.8
+  scaryMusicStartOffset: 1
+--- !u!65 &1250127024
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250127020}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 50, y: 10, z: 30}
+  m_Center: {x: -12.7, y: -5.2, z: -17.29}
+--- !u!4 &1250127025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250127020}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.0112753, y: 13.593259, z: -12.957157}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280948472
 GameObject:
   m_ObjectHideFlags: 0
@@ -9171,6 +9241,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: startMusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a7178fae479e940d48d92cf6c45d15a0, type: 3}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: musicAudios.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: musicAudios.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: a7178fae479e940d48d92cf6c45d15a0, type: 3}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: musicAudios.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c6da116d3795a42d0bf5b15967482c9d, type: 3}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: musicAudios.Array.data[0].volume
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3176349071945454244, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1737.7
@@ -9218,7 +9308,7 @@ PrefabInstance:
     - target: {fileID: 4273961805917000544, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: a7178fae479e940d48d92cf6c45d15a0, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14316,3 +14406,4 @@ SceneRoots:
   - {fileID: 461362856}
   - {fileID: 2140886287}
   - {fileID: 887029474}
+  - {fileID: 1250127025}

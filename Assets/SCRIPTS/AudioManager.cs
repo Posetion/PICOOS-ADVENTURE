@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,10 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Sources")]
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioSource sfxAudioSource;
+
+    [Header("Starting Music")]
+    [Tooltip("Drag a music clip here to auto-play it when this scene loads")]
+    [SerializeField] private AudioClip startMusicClip;
 
     [Header("Sound Effects")]
     [SerializeField]
@@ -42,10 +47,17 @@ public class AudioManager : MonoBehaviour
     }
 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ApplyAudioSetting();
+
+        if (startMusicClip != null)
+        {
+            musicAudioSource.clip = startMusicClip;
+            musicAudioSource.loop = true;
+            musicAudioSource.volume = musicMuted ? 0f : musicVolume;
+            musicAudioSource.Play();
+        }
     }
 
     // Update is called once per frame
@@ -57,7 +69,7 @@ public class AudioManager : MonoBehaviour
 
     public void LoadAudioSetting()
     {
-        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.3f);
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
         musicMuted = PlayerPrefs.GetFloat("MusicMuted", 0) == 1;
         sfxMuted = PlayerPrefs.GetFloat("SFXMuted", 0) == 1;
@@ -164,5 +176,46 @@ public class AudioManager : MonoBehaviour
     public bool IsMusicMuted() => musicMuted;
     public bool IsSFXMuted() => sfxMuted;
 
+    // Used by MusicZone to crossfade between tracks
+    private Coroutine activeFadeCoroutine;
+
+    public void PlayMusicWithFade(AudioClip clip, float fadeDuration = 1.5f, float startOffset = 0f)
+    {
+        if (clip == null) return;
+
+        if (activeFadeCoroutine != null)
+            StopCoroutine(activeFadeCoroutine);
+
+        activeFadeCoroutine = StartCoroutine(CrossFadeMusic(clip, fadeDuration, startOffset));
+    }
+
+    private IEnumerator CrossFadeMusic(AudioClip nextClip, float fadeDuration, float startOffset)
+    {
+        float targetVol = musicMuted ? 0f : musicVolume;
+        float elapsed = 0f;
+        float fromVol = musicAudioSource.volume;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            musicAudioSource.volume = Mathf.Lerp(fromVol, 0f, elapsed / fadeDuration);
+            yield return null;
+        }
+        musicAudioSource.volume = 0f;
+
+        musicAudioSource.clip = nextClip;
+        musicAudioSource.time = Mathf.Clamp(startOffset, 0f, nextClip.length - 0.1f);
+        musicAudioSource.Play();
+
+        elapsed = 0f;
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.deltaTime;
+            musicAudioSource.volume = Mathf.Lerp(0f, targetVol, elapsed / fadeDuration);
+            yield return null;
+        }
+        musicAudioSource.volume = targetVol;
+        activeFadeCoroutine = null;
+    }
 
 }

@@ -3038,6 +3038,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: startMusicClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3cbc459a544a04ad0b60b8274cad6e75, type: 3}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: musicAudios.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: musicAudios.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
+      propertyPath: musicAudios.Array.data[0].volume
+      value: 0.633
+      objectReference: {fileID: 0}
     - target: {fileID: 3176349071945454244, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1737.7
@@ -3089,7 +3105,7 @@ PrefabInstance:
     - target: {fileID: 4273961805917000544, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
       propertyPath: m_Resource
       value: 
-      objectReference: {fileID: 8300000, guid: 3cbc459a544a04ad0b60b8274cad6e75, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
