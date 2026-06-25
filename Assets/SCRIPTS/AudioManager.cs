@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private List<Sound> musicAudios;
 
-    private float musicVolume = 0.7f;
+    private float musicVolume = 0.5f;
     private float sfxVolume = 1.0f;
     private bool musicMuted = false;
     private bool sfxMuted = false;
@@ -57,7 +57,7 @@ public class AudioManager : MonoBehaviour
 
     public void LoadAudioSetting()
     {
-        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.7f);
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
         musicMuted = PlayerPrefs.GetFloat("MusicMuted", 0) == 1;
         sfxMuted = PlayerPrefs.GetFloat("SFXMuted", 0) == 1;
