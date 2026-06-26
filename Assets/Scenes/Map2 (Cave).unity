@@ -3051,7 +3051,7 @@ PrefabInstance:
     - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
       propertyPath: startMusicClip
       value: 
-      objectReference: {fileID: 8300000, guid: 3cbc459a544a04ad0b60b8274cad6e75, type: 3}
+      objectReference: {fileID: 8300000, guid: e4657701a08531b43a792732e45f6c2b, type: 3}
     - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
       propertyPath: musicAudios.Array.size
       value: 0

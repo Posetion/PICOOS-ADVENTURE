@@ -107,7 +107,22 @@ public class GameManager : MonoBehaviour
 
 
 
+    // Add this method anywhere inside your GameManager class
+    public void AddTime(float amount)
+    {
+        if (!gameActive) return;
 
+        currentTime += amount;
+
+        // Optional: Clamp time so it doesn't exceed the level's total limit
+        if (currentTime > totalTimeLimit)
+        {
+            currentTime = totalTimeLimit;
+        }
+
+        Debug.Log("Time added! Current time: " + currentTime);
+        UpdateUI();
+    }
 
 
 }
