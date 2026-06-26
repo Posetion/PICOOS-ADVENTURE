@@ -69,7 +69,7 @@ public class AudioManager : MonoBehaviour
 
     public void LoadAudioSetting()
     {
-        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.3f);
+        musicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.2f);
         sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1.0f);
         musicMuted = PlayerPrefs.GetFloat("MusicMuted", 0) == 1;
         sfxMuted = PlayerPrefs.GetFloat("SFXMuted", 0) == 1;
