@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicAudioSource: {fileID: 4273961805917000544}
   sfxAudioSource: {fileID: 8385667761432424875}
+  startMusicClip: {fileID: 0}
   soundEffects:
   - name: Collect
     clip: {fileID: 8300000, guid: 552e80977660d3341a8ff45cb7910921, type: 3}
@@ -61,6 +62,11 @@ MonoBehaviour:
     pitchMax: 1.2
   - name: speedUp
     clip: {fileID: 8300000, guid: 7b3facef6a203fe4eadc0066ff2b60f9, type: 3}
+    volume: 1
+    pitchMin: 1.2
+    pitchMax: 1.2
+  - name: explosion
+    clip: {fileID: 8300000, guid: 90f76be56f847c643b7f09447fd26c0a, type: 3}
     volume: 1
     pitchMin: 1.2
     pitchMax: 1.2
