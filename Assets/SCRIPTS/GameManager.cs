@@ -85,6 +85,10 @@ public class GameManager : MonoBehaviour
         if (currentFruitScore >= totalFruitScore)
         {
             Debug.Log("You have collected all the food");
+
+
+            uiManager?.ShowReturnHomeBar();
+
         }
 
     }

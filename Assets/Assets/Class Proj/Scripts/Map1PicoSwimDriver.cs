@@ -20,24 +20,24 @@ public sealed class Map1PicoSwimDriver : MonoBehaviour
 
     [Header("Swim movement (matches FS SwimmingController defaults)")]
     [SerializeField] RuntimeAnimatorController swimAnimatorAsset;
-    [SerializeField] float normalSpeed = 2f;
-    [SerializeField] float fastSwimSpeed = 4f;
-    [SerializeField] float underWaterSpeed = 3f;
-    [SerializeField] float rotationSpeed = 100f;
-    [SerializeField] KeyCode moveDownKey = KeyCode.C;
-    [SerializeField] KeyCode moveUpKey = KeyCode.Space;
+    [SerializeField] public float normalSpeed = 2f;
+    [SerializeField] public float fastSwimSpeed = 4f;
+    [SerializeField] public float underWaterSpeed = 3f;
+    [SerializeField] public float rotationSpeed = 100f;
+    [SerializeField] public KeyCode moveDownKey = KeyCode.C;
+    [SerializeField] public KeyCode moveUpKey = KeyCode.Space;
 
     [Header("Exit water transition")]
-    [SerializeField] float exitCoastDuration = 0.6f;
-    [SerializeField] float exitAnimatorCrossfade = 0.45f;
-    [SerializeField] float exitCapsuleBlendDuration = 0.75f;
-    [SerializeField] float exitMomentumRetain = 0.7f;
-    [SerializeField] float exitLiftSpeed = 0.85f;
-    [SerializeField] float exitMinCoastSpeed = 0.35f;
+    [SerializeField] public float exitCoastDuration = 0.6f;
+    [SerializeField] public float exitAnimatorCrossfade = 0.45f;
+    [SerializeField] public float exitCapsuleBlendDuration = 0.75f;
+    [SerializeField] public float exitMomentumRetain = 0.7f;
+    [SerializeField] public float exitLiftSpeed = 0.85f;
+    [SerializeField] public float exitMinCoastSpeed = 0.35f;
 
     [Header("Enter water behavior")]
-    [SerializeField] float enterSurfaceSnapDuration = 0.45f;
-    [SerializeField] float enterSurfaceRiseSpeed = 4.5f;
+    [SerializeField] public float enterSurfaceSnapDuration = 0.45f;
+    [SerializeField] public float enterSurfaceRiseSpeed = 4.5f;
 
     ThirdPersonController _locomotion;
     StarterAssetsInputs _input;
