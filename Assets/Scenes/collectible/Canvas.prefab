@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7425319870588302571}
   - component: {fileID: 6544300345353109804}
   - component: {fileID: 3170245062210791278}
-  - component: {fileID: 3074169629050533093}
+  - component: {fileID: 5568679190785297612}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &3074169629050533093
+--- !u!114 &5568679190785297612
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,7 +119,7 @@ MonoBehaviour:
   GameHUD: {fileID: 3617382680225611422}
   foodCounterText: {fileID: 1361142893026300995}
   timerText: {fileID: 477624498141550412}
-  returnHomePage: {fileID: 0}
+  returnHomePage: {fileID: 102546133572195086}
 --- !u!1 &3375181003797584064
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +381,7 @@ GameObject:
   - component: {fileID: 1444715263812957978}
   - component: {fileID: 8785830406967642398}
   - component: {fileID: 4727438559894473820}
+  - component: {fileID: 102546133572195086}
   m_Layer: 5
   m_Name: Mission
   m_TagString: Untagged
@@ -405,7 +406,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -759.93, y: 202.65002}
+  m_AnchoredPosition: {x: -1263, y: 202.65002}
   m_SizeDelta: {x: 605.1, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8785830406967642398
@@ -446,6 +447,28 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &102546133572195086
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5633540347168270798}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03fccd2213a60594a8ea2565f580ac1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6461416517247567825
 GameObject:
   m_ObjectHideFlags: 0

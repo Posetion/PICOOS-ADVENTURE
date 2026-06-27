@@ -85,7 +85,21 @@ public class UiManager : MonoBehaviour
         }
     }
 
+    public void ShowReturnHomeBar()
+    {
+        if (returnHomePage != null)
+        {
+            // Option A: If you are using a Trigger parameter named "SlideIn"
+            returnHomePage.SetTrigger("SlideIn");
 
+            // Option B: If you prefer a Boolean parameter instead, uncomment below:
+            // returnHomePage.SetBool("IsOpen", true);
+        }
+        else
+        {
+            Debug.LogWarning("ReturnHomePage Animator reference is missing in UIManager!");
+        }
+    }
 
 
 
