@@ -755,13 +755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1522dbc4cb9c3854d94aa0e4faac7cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 1498529281}
-  destroyDelay: 0.5
-  collectibleModels: []
-  collectedVFX: {fileID: 0}
-  OnCollectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &176611019
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6493,13 +6486,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1522dbc4cb9c3854d94aa0e4faac7cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 1498529281}
-  destroyDelay: 0.5
-  collectibleModels: []
-  collectedVFX: {fileID: 0}
-  OnCollectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &1062398394
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -9198,17 +9184,6 @@ CapsuleCollider:
   m_Height: 8.015888
   m_Direction: 1
   m_Center: {x: -0.030776441, y: 4.6329184, z: 0.0074507594}
---- !u!114 &1498529281 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
-  m_PrefabInstance: {fileID: 644196257}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec2b5b202f8b5324ea49379cac375a54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1499552222
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13490,13 +13465,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1522dbc4cb9c3854d94aa0e4faac7cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 1498529281}
-  destroyDelay: 0.5
-  collectibleModels: []
-  collectedVFX: {fileID: 0}
-  OnCollectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &2077086987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13859,13 +13827,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1522dbc4cb9c3854d94aa0e4faac7cb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameManager: {fileID: 1498529281}
-  destroyDelay: 0.5
-  collectibleModels: []
-  collectedVFX: {fileID: 0}
-  OnCollectedEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!135 &2142079854
 SphereCollider:
   m_ObjectHideFlags: 0
