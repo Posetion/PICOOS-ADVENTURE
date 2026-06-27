@@ -9,7 +9,7 @@ public class ChestController : MonoBehaviour
     [SerializeField] private Animator animator;
     private bool opened = false;
 
-    [Header("Drag your 3 Spawn Collectible objects here (auto-found if empty)")]
+    [Header("Assign spawn collectibles here, or leave empty to auto-find")]
     [SerializeField] private GameObject[] collectibles;
 
     [Header("Jump from chest to placed position")]
@@ -61,6 +61,24 @@ public class ChestController : MonoBehaviour
         var found = new List<GameObject>();
         var allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
 
+        // Map2 style: direct children under a SpawnCollectibles parent
+        foreach (GameObject obj in allObjects)
+        {
+            if (obj.scene != gameObject.scene) continue;
+            if (obj.name != "SpawnCollectibles") continue;
+
+            Transform parent = obj.transform;
+            for (int i = 0; i < parent.childCount; i++)
+                found.Add(parent.GetChild(i).gameObject);
+
+            if (found.Count > 0)
+            {
+                found.Sort((a, b) => string.CompareOrdinal(a.name, b.name));
+                return found.ToArray();
+            }
+        }
+
+        // Map1 style: individual objects named "Spawn Collectible..."
         foreach (GameObject obj in allObjects)
         {
             if (obj.scene != gameObject.scene) continue;

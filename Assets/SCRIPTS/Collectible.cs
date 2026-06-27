@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
@@ -25,24 +26,70 @@ public class Collectible : MonoBehaviour
             col.isTrigger = true;
         }
 
-        int index = Random.Range(0, collectibleModels.Length);
-
-
-        foreach (GameObject model in collectibleModels)
+        if (collectibleModels != null && collectibleModels.Length > 0)
         {
-            model.SetActive(false);
-        }
+            int index = Random.Range(0, collectibleModels.Length);
 
-        collectibleModels[index].gameObject.SetActive(true);
+            foreach (GameObject model in collectibleModels)
+            {
+                model.SetActive(false);
+            }
+
+            collectibleModels[index].gameObject.SetActive(true);
+        }
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(CheckPlayerOverlapNextFrame());
+    }
+
+    private IEnumerator CheckPlayerOverlapNextFrame()
+    {
+        yield return null;
+
+        if (collected) yield break;
+
+        Collider col = GetComponent<Collider>();
+        if (col == null || !col.enabled || !col.isTrigger) yield break;
+
+        Bounds bounds = col.bounds;
+        Collider[] overlaps = Physics.OverlapBox(
+            bounds.center,
+            bounds.extents,
+            transform.rotation,
+            ~0,
+            QueryTriggerInteraction.Collide);
+
+        for (int i = 0; i < overlaps.Length; i++)
+        {
+            if (IsPlayer(overlaps[i]))
+            {
+                Collect();
+                yield break;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Only the player can collect, and only once
-        if (other.gameObject.CompareTag("Player") && !collected)
-        {
+        TryCollect(other);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        TryCollect(other);
+    }
+
+    private void TryCollect(Collider other)
+    {
+        if (!collected && IsPlayer(other))
             Collect();
-        }
+    }
+
+    private static bool IsPlayer(Collider other)
+    {
+        return other.CompareTag("Player") || other.transform.root.CompareTag("Player");
     }
 
     private void Collect()

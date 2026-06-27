@@ -62,8 +62,17 @@ public class GameManager : MonoBehaviour
     {
         currentFruitScore = 0;
         currentTime = totalTimeLimit;
-        //Find all the fruit game objects from the scene
-        totalFruitScore = GameObject.FindGameObjectsWithTag("Collectible").Length;
+
+        // Include disabled chest spawn collectibles so the total matches the level.
+        Collectible[] allCollectibles = FindObjectsByType<Collectible>(
+            FindObjectsInactive.Include,
+            FindObjectsSortMode.None);
+        totalFruitScore = 0;
+        for (int i = 0; i < allCollectibles.Length; i++)
+        {
+            if (allCollectibles[i].gameObject.scene == gameObject.scene)
+                totalFruitScore++;
+        }
 
         uiManager = FindAnyObjectByType<UiManager>();
 
@@ -81,12 +90,16 @@ public class GameManager : MonoBehaviour
     {
         currentFruitScore++;
 
-        Debug.Log("Food Collected" + currentFruitScore + "/" + totalFruitScore);
+        Debug.Log("Food Collected " + currentFruitScore + "/" + totalFruitScore);
         if (currentFruitScore >= totalFruitScore)
         {
             Debug.Log("You have collected all the food");
         }
 
+        if (uiManager == null)
+            uiManager = FindAnyObjectByType<UiManager>();
+
+        UpdateUI();
     }
 
 
