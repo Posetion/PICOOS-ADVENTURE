@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour
 {
     public static SceneController instance;
+
     public void Awake()
     {
         if (instance == null)
@@ -19,28 +20,32 @@ public class SceneController : MonoBehaviour
     }
 
 
-    public void LoadScene(string sceneName)
+    public void LoadScene(int sceneIndex)
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(sceneName);
-        //UpdateMusicForScene(sceneName);
+        SceneManager.LoadScene(sceneIndex);
+        UpdateMusicForScene(sceneIndex);
     }
 
     public void PauseTime()
     {
         Time.timeScale = 0f;
+
     }
 
     public void ResumeTime()
     {
         Time.timeScale = 1f;
+        // Hide the pause menu UI when resuming
+
     }
 
     public void RestartLevel()
     {
         Time.timeScale = 1f;
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentIndex);
+        LoadScene(currentIndex);
+        UpdateMusicForScene(currentIndex);
     }
 
     public void LoadNextLevel()
@@ -50,10 +55,12 @@ public class SceneController : MonoBehaviour
         if (nextcurrentIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextcurrentIndex);
+            UpdateMusicForScene(nextcurrentIndex);
         }
         else
         {
             SceneManager.LoadScene(0);
+            UpdateMusicForScene(0);
         }
     }
     public void GoTotitle()
@@ -68,33 +75,23 @@ public class SceneController : MonoBehaviour
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
-            Application.Quit();
+        Application.Quit();
 #endif
     }
 
     private void UpdateMusicForScene(int sceneIndex)
     {
-        if (AudioManager.Instance == null)
+        if (AudioManager.Instance == null) return;
+
+
+
+        if (sceneIndex > 0)
         {
-            return;
-            if (sceneIndex > 0)
-            {
-                AudioManager.Instance.PlayMusic("GamePlay");
-            }
-            else
-            {
-                AudioManager.Instance.PlayMusic("MenuMusic");
-            }
-
+            AudioManager.Instance.PlayMusic("GamePlay");
         }
-
-
-
-
-
-
-
-
-
+        else
+        {
+            AudioManager.Instance.PlayMusic("MenuMusic");
+        }
     }
 }

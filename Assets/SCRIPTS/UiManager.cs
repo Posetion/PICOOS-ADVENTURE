@@ -10,13 +10,26 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Animator returnHomePage;
 
+    [Header("Pause Menu")]
+    [SerializeField] public GameObject pauseMenu;
 
-
-
+    public static UiManager instance;
 
 
     void Awake()
     {
+
+        // 2. Initialize the Singleton instance
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         if (foodCounterText == null || timerText == null)
         {
             TMP_Text[] texts = GetComponentsInChildren<TMP_Text>(true);
@@ -101,6 +114,30 @@ public class UiManager : MonoBehaviour
         }
     }
 
+    public void PauseButton()
+    {
+        Time.timeScale = 0f;
+        GameHUD.SetActive(false);
+        pauseMenu.SetActive(true);
+    }
 
+    public void RestartButton()
+    {
+        SceneController.instance.RestartLevel();
+    }
+    public void NextLevelButton()
+    {
+        SceneController.instance.LoadNextLevel();
+    }
+    public void HomeButton()
+    {
+        SceneController.instance.GoTotitle();
+    }
+    public void ResumeButton()
+    {
+        Time.timeScale = 1f;
+        GameHUD.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
 
 }
