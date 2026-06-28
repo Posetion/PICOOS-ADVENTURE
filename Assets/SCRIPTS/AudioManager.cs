@@ -31,19 +31,35 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
         {
-            Instance = this;
+
+            if (Instance == null)
+
+            {
+
+                Instance = this;
+
+            }
+
+            else
+
+            {
+
+                Destroy(gameObject);
+
+            }
+
+            DontDestroyOnLoad(gameObject);
+
+
+
+            LoadAudioSetting();
+
+
+
+
+
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-
-        LoadAudioSetting();
-
-
     }
 
 
@@ -107,14 +123,32 @@ public class AudioManager : MonoBehaviour
     {
         Sound musicAudio = musicAudios.Find(s => s.name == musicName);
         if (musicAudio != null && musicAudio.clip != null)
-        {
-            musicAudioSource.clip = musicAudio.clip;
+        {// Force an immediate audio settings check to ensure volume isn't hidden at 0
+            LoadAudioSetting();
+            float targetVolume = musicMuted ? 0f : musicVolume;
 
+            Debug.Log($"[AudioManager] Found track '{musicName}'. Current Volume: {targetVolume}, Pitch: {musicAudioSource.pitch}");
+
+            // If the exact clip is already playing, don't restart it
+            if (musicAudioSource.clip == musicAudio.clip && musicAudioSource.isPlaying)
+            {
+                Debug.Log($"[AudioManager] Track '{musicName}' is already playing. Skipping restart.");
+                musicAudioSource.volume = targetVolume; // Keep volume updated
+                return;
+            }
+
+            musicAudioSource.clip = musicAudio.clip;
+            musicAudioSource.pitch = 1f; // Overwrite any inspector pitch bugs
+            musicAudioSource.volume = targetVolume;
+            musicAudioSource.loop = true;
             musicAudioSource.Play();
+
+            Debug.Log($"[AudioManager] Now playing: {musicAudio.clip.name}");
         }
         else
         {
-            Debug.LogWarning($"Music track '{musicName}' not found!");
+            Debug.LogWarning($"[AudioManager] Music track '{musicName}' not found in the list! Stopping music.");
+            StopMusic();
         }
     }
 
@@ -140,16 +174,20 @@ public class AudioManager : MonoBehaviour
     public void ToggleMusicVolume()
     {
         musicMuted = !musicMuted;
-        musicVolume = musicMuted ? 0f : musicVolume;
-        PlayerPrefs.SetFloat("MusicMuted", musicVolume);
+        // Apply the mute to the audio source without destroying your musicVolume variable
+        musicAudioSource.volume = musicMuted ? 0f : musicVolume;
+
+        // Save 1 for true, 0 for false so LoadAudioSetting() can read it correctly
+        PlayerPrefs.SetInt("MusicMuted", musicMuted ? 1 : 0);
         PlayerPrefs.Save();
 
     }
     public void ToggleSfxVolume()
     {
         sfxMuted = !sfxMuted;
-        sfxVolume = sfxMuted ? 0f : sfxVolume;
-        PlayerPrefs.SetFloat("SFXMuted", sfxVolume);
+        sfxAudioSource.volume = sfxMuted ? 0f : sfxVolume;
+
+        PlayerPrefs.SetInt("SFXMuted", sfxMuted ? 1 : 0);
         PlayerPrefs.Save();
 
     }
