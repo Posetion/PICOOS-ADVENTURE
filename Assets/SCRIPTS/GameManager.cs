@@ -54,6 +54,13 @@ public class GameManager : MonoBehaviour
         {
             currentTime = 0;
             gameActive = false;
+
+            UpdateUI(); // Show 00:00 before stopping
+
+            if (uiManager == null)
+                uiManager = FindAnyObjectByType<UiManager>();
+
+            uiManager?.ShowGameOver();
         }
     }
 

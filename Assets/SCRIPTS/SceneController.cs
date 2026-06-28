@@ -22,24 +22,7 @@ public class SceneController : MonoBehaviour
 
     }
 
-    private void OnEnable()
-    {
-        // Subscribe ONLY the one true instance to the scene load event
-        SceneManager.sceneLoaded += OnSceneLoaded;
-    }
 
-    private void OnDisable()
-    {
-        // Clean up to prevent memory leaks
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        // Fire the coroutine to update music based on the newly loaded scene index
-        StartCoroutine(WaitAndPlayMusic(scene.buildIndex));
-
-        Debug.Log($"[SceneController] Loaded Scene Index: {scene.buildIndex}. Running music update...");
-    }
 
     private IEnumerator WaitAndPlayMusic(int sceneIndex)
     {
