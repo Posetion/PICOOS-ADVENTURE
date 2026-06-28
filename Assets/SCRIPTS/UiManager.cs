@@ -14,6 +14,9 @@ public class UiManager : MonoBehaviour
     [SerializeField] public GameObject pauseMenu;
     [Header("Game Over Menu")]
     [SerializeField] public GameObject gameOver;
+
+    [Header("Win Menu")]
+    [SerializeField] public GameObject win;
     public static UiManager instance;
 
 
@@ -152,5 +155,17 @@ public class UiManager : MonoBehaviour
             gameOver.SetActive(true);
     }
 
+    public void ShowWinPanel()
+    {
+        Time.timeScale = 0f;
 
+        if (GameHUD != null)
+            GameHUD.SetActive(false);
+
+        if (gameOver != null)
+            gameOver.SetActive(false);
+
+        if (win != null)
+            win.SetActive(true);
+    }
 }

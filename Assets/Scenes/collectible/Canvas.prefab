@@ -954,6 +954,7 @@ MonoBehaviour:
   returnHomePage: {fileID: 102546133572195086}
   pauseMenu: {fileID: 5358308076262264815}
   gameOver: {fileID: 2127844396311920410}
+  win: {fileID: 985697543185749061}
 --- !u!1 &2127844396311920410
 GameObject:
   m_ObjectHideFlags: 0

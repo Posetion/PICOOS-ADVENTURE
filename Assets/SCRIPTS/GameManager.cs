@@ -11,9 +11,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float currentTime = 10;
     [SerializeField] private bool gameActive = true;
     [SerializeField] private bool canCompleteLevelFlag = false;
-    [SerializeField]
-    private UiManager uiManager;
-
+    [SerializeField] private UiManager uiManager;
+    [SerializeField] private FinishZone finishZone;
     private void Awake()
     {
         if (instance == null)
@@ -101,7 +100,7 @@ public class GameManager : MonoBehaviour
         if (currentFruitScore >= totalFruitScore)
         {
             Debug.Log("You have collected all the food");
-
+            finishZone?.ActivateFinishZone();
 
             uiManager?.ShowReturnHomeBar();
 
@@ -121,6 +120,10 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void TriggerCookingCutScene()
+    {
+
+    }
 
     public bool isGameActive() => gameActive;
     public int GetCurrentFood() => currentFruitScore;
