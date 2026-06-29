@@ -15,5 +15,5 @@ AssetOrigin:
   packageName: Starter Assets - ThirdPerson | Updates in new CharacterController
     package
   packageVersion: 1.1.7
-  assetPath: Assets/StarterAssets/Mobile/Scripts/Utilities/MobileDisableAutoSwitchControls.cs
+  assetPath: Assets/Assets/ImportedAssets/StarterAssets/Mobile/Scripts/Utilities/MobileDisableAutoSwitchControls.cs
   uploadId: 879174

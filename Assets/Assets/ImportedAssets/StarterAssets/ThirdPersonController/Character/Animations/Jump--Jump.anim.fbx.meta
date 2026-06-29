@@ -965,5 +965,5 @@ AssetOrigin:
   packageName: Starter Assets - ThirdPerson | Updates in new CharacterController
     package
   packageVersion: 1.1.7
-  assetPath: Assets/StarterAssets/ThirdPersonController/Character/Animations/Jump--Jump.anim.fbx
+  assetPath: Assets/Assets/ImportedAssets/StarterAssets/ThirdPersonController/Character/Animations/Jump--Jump.anim.fbx
   uploadId: 879174

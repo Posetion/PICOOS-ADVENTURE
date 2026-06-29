@@ -16,5 +16,5 @@ AssetOrigin:
   packageName: Starter Assets - ThirdPerson | Updates in new CharacterController
     package
   packageVersion: 1.1.7
-  assetPath: Assets/StarterAssets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs
+  assetPath: Assets/Assets/ImportedAssets/StarterAssets/TutorialInfo/Scripts/Editor/ReadmeEditor.cs
   uploadId: 879174
