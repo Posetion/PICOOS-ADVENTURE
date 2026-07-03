@@ -12,6 +12,7 @@ TagManager:
   - NavmeshLink
   - NavmeshSurface
   - Collectible
+  - Chest
   layers:
   - Default
   - TransparentFX
