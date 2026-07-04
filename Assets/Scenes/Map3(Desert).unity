@@ -10832,7 +10832,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 810dd5e6637527f438f646c23c9f1214, type: 3}
-<<<<<<< HEAD
 --- !u!1 &1787975673 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1586674841657918602, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
@@ -10857,8 +10856,6 @@ MonoBehaviour:
   keyPopupPanel: {fileID: 0}
   keyPopupText: {fileID: 0}
   keyCollectedMessage: Key Collected! Find the chest to get food!
-=======
->>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
 --- !u!1001 &1806783446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11644,7 +11641,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db4d8bfff6d19d143a342d6adaa3c7b7, type: 3}
-<<<<<<< HEAD
 --- !u!1001 &1996946427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11974,8 +11970,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1787975679}
   m_SourcePrefab: {fileID: 100100000, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
-=======
->>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
 --- !u!1001 &1999357726
 PrefabInstance:
   m_ObjectHideFlags: 0

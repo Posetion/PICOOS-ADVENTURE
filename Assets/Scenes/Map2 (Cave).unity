@@ -15957,7 +15957,6 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 50
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 880010001001001001, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16022,12 +16021,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
-=======
     - target: {fileID: 985697543185749061, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
->>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
     - target: {fileID: 1361142893026300995, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2

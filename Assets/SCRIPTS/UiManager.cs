@@ -10,25 +10,15 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Animator returnHomePage;
 
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
     [Header("Pause Menu")]
     [SerializeField] public GameObject pauseMenu;
     [Header("Game Over Menu")]
     [SerializeField] public GameObject gameOver;
-=======
->>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
+
     [Header("Key Popup")]
     [SerializeField] private GameObject keyPopupPanel;
     [SerializeField] private TMP_Text keyPopupText;
     [SerializeField] private string keyCollectedMessage = "Key Collected! Find the chest to get food!";
-<<<<<<< HEAD
-
-=======
->>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
-
->>>>>>> Stashed changes
 
     [Header("Win Menu")]
     [SerializeField] public GameObject win;
@@ -37,12 +27,7 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
-<<<<<<< HEAD
-        if (foodCounterText == null || timerText == null || keyPopupText == null)
-=======
-<<<<<<< Updated upstream
-
-        // 2. Initialize the Singleton instance
+        // Initialize the Singleton instance
         if (instance == null)
         {
             instance = this;
@@ -53,11 +38,7 @@ public class UiManager : MonoBehaviour
             return;
         }
 
-        if (foodCounterText == null || timerText == null)
-=======
         if (foodCounterText == null || timerText == null || keyPopupText == null)
->>>>>>> Stashed changes
->>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
         {
             TMP_Text[] texts = GetComponentsInChildren<TMP_Text>(true);
             for (int i = 0; i < texts.Length; i++)
