@@ -10,19 +10,54 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Animator returnHomePage;
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+    [Header("Pause Menu")]
+    [SerializeField] public GameObject pauseMenu;
+    [Header("Game Over Menu")]
+    [SerializeField] public GameObject gameOver;
+=======
+>>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
     [Header("Key Popup")]
     [SerializeField] private GameObject keyPopupPanel;
     [SerializeField] private TMP_Text keyPopupText;
     [SerializeField] private string keyCollectedMessage = "Key Collected! Find the chest to get food!";
+<<<<<<< HEAD
 
+=======
+>>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
 
+>>>>>>> Stashed changes
 
-
+    [Header("Win Menu")]
+    [SerializeField] public GameObject win;
+    public static UiManager instance;
 
 
     void Awake()
     {
+<<<<<<< HEAD
         if (foodCounterText == null || timerText == null || keyPopupText == null)
+=======
+<<<<<<< Updated upstream
+
+        // 2. Initialize the Singleton instance
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        if (foodCounterText == null || timerText == null)
+=======
+        if (foodCounterText == null || timerText == null || keyPopupText == null)
+>>>>>>> Stashed changes
+>>>>>>> 385c6c685c9b85e9583085961c4534ebd22bb084
         {
             TMP_Text[] texts = GetComponentsInChildren<TMP_Text>(true);
             for (int i = 0; i < texts.Length; i++)
@@ -132,6 +167,54 @@ public class UiManager : MonoBehaviour
         }
     }
 
+    public void PauseButton()
+    {
+        Time.timeScale = 0f;
+        GameHUD.SetActive(false);
+        pauseMenu.SetActive(true);
+    }
 
+    public void RestartButton()
+    {
+        SceneController.instance.RestartLevel();
+    }
+    public void NextLevelButton()
+    {
+        SceneController.instance.LoadNextLevel();
+    }
+    public void HomeButton()
+    {
+        SceneController.instance.GoTotitle();
+    }
+    public void ResumeButton()
+    {
+        Time.timeScale = 1f;
+        GameHUD.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
 
+    public void ShowGameOver()
+    {
+        Time.timeScale = 0f;
+
+        if (GameHUD != null)
+            GameHUD.SetActive(false);
+
+        if (gameOver != null)
+            gameOver.SetActive(true);
+    }
+
+    public void ShowWinPanel()
+    {
+        Time.timeScale = 0f;
+
+        if (GameHUD != null)
+            GameHUD.SetActive(false);
+
+        if (gameOver != null)
+            gameOver.SetActive(false);
+
+        if (win != null)
+            win.SetActive(true);
+    }
 }

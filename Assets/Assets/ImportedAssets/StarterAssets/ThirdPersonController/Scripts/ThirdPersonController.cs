@@ -14,7 +14,6 @@ namespace StarterAssets
 #endif
     public class ThirdPersonController : MonoBehaviour
     {
-        
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -40,9 +39,8 @@ namespace StarterAssets
         [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
 
-        // DOUBLE JUMP: Custom height for your second jump
-        [Tooltip("The height of the second jump")]
-        public float DoubleJumpHeight = 1.2f;
+        [Tooltip("The height the player can double jump")]
+        public float DoubleJumpHeight = 1.2f; // Added for QuicksandVolume compatibility
 
         [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
         public float Gravity = -15.0f;
@@ -95,14 +93,12 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
+        // double jump tracking
+        private bool _canDoubleJump; // Track if mid-air jump is available
+
         // timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
-
-        // DOUBLE JUMP: Variable tracking
-        private int _jumpCount = 0;
-        private const int _maxJumps = 2; 
-        private float _doubleJumpDelayTimer = 0f;
 
         // animation IDs
         private int _animIDSpeed;
@@ -130,7 +126,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM
                 return _playerInput.currentControlScheme == "KeyboardMouse";
 #else
-				return false;
+                return false;
 #endif
             }
         }
@@ -155,7 +151,7 @@ namespace StarterAssets
 #if ENABLE_INPUT_SYSTEM 
             _playerInput = GetComponent<PlayerInput>();
 #else
-			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
+            Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
             AssignAnimationIDs();
@@ -296,12 +292,11 @@ namespace StarterAssets
         {
             if (Grounded)
             {
-                // DOUBLE JUMP: Reset counts and timers when landing
-                _jumpCount = 0;
-                _doubleJumpDelayTimer = 0f;
-
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
+
+                // Reset double jump availability
+                _canDoubleJump = true;
 
                 // update animator if using character
                 if (_hasAnimator)
@@ -317,20 +312,19 @@ namespace StarterAssets
                 }
 
                 // Jump
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                if (_input.jump && _jumpTimeoutDelta <= 0.0f && JumpHeight > 0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-
-                    // DOUBLE JUMP: Increment tracking values
-                    _jumpCount++;
-                    _doubleJumpDelayTimer = Time.time + 0.15f;
 
                     // update animator if using character
                     if (_hasAnimator)
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
+
+                    // CRITICAL FIX: Clear the input immediately so it doesn't trigger the double jump on the same frame
+                    _input.jump = false;
                 }
 
                 // jump timeout
@@ -358,21 +352,22 @@ namespace StarterAssets
                     }
                 }
 
-                // DOUBLE JUMP: Check for aerial jump input after the safety window passes
-                if (_input.jump && _jumpCount < _maxJumps && Time.time > _doubleJumpDelayTimer)
+                // Double Jump logic while mid-air
+                if (_input.jump && _canDoubleJump && DoubleJumpHeight > 0f)
                 {
                     _verticalVelocity = Mathf.Sqrt(DoubleJumpHeight * -2f * Gravity);
-                    _jumpCount++;
+                    _canDoubleJump = false; // Consume the double jump
 
                     if (_hasAnimator)
                     {
-                        // Reset and force the Jump animation to replay instantly from frame 0
+                        // Retrigger jump animation sequence
                         _animator.SetBool(_animIDJump, false);
-                        _animator.Play(_animIDJump, 0, 0f);
+                        _animator.SetBool(_animIDJump, true);
+                        _animator.SetBool(_animIDFreeFall, false);
                     }
                 }
 
-                // Always clear input flag inside the airborne block
+                // Consume jump input to avoid accidental loops
                 _input.jump = false;
             }
 
@@ -382,7 +377,6 @@ namespace StarterAssets
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
         }
-
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
         {
             if (lfAngle < -360f) lfAngle += 360f;
@@ -408,7 +402,6 @@ namespace StarterAssets
         {
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
-
                 if (AudioFootsteps != null)
                     AudioFootsteps.Play();
                 if (AudioFoley != null)
@@ -422,7 +415,6 @@ namespace StarterAssets
             {
                 if (LandingAudio != null)
                     LandingAudio.Play();
-
             }
         }
     }
