@@ -104,7 +104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d96738c0b35489280b5e966bc26f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
   collectVFX: {fileID: 0}
+  rotationSpeed: 90
+  tiltAngle: 30
 --- !u!135 &2943401473920060445
 SphereCollider:
   m_ObjectHideFlags: 0
