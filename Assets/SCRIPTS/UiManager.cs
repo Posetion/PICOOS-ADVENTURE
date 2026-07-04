@@ -10,6 +10,11 @@ public class UiManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private Animator returnHomePage;
 
+    [Header("Key Popup")]
+    [SerializeField] private GameObject keyPopupPanel;
+    [SerializeField] private TMP_Text keyPopupText;
+    [SerializeField] private string keyCollectedMessage = "Key Collected! Find the chest to get food!";
+
 
 
 
@@ -17,7 +22,7 @@ public class UiManager : MonoBehaviour
 
     void Awake()
     {
-        if (foodCounterText == null || timerText == null)
+        if (foodCounterText == null || timerText == null || keyPopupText == null)
         {
             TMP_Text[] texts = GetComponentsInChildren<TMP_Text>(true);
             for (int i = 0; i < texts.Length; i++)
@@ -26,7 +31,16 @@ public class UiManager : MonoBehaviour
                     foodCounterText = texts[i];
                 else if (timerText == null && texts[i].name.Contains("Timer"))
                     timerText = texts[i];
+                else if (keyPopupText == null && texts[i].name.Contains("KeyPopup"))
+                    keyPopupText = texts[i];
             }
+        }
+
+        if (keyPopupPanel == null)
+        {
+            Transform panel = transform.Find("KeyPopupPanel");
+            if (panel != null)
+                keyPopupPanel = panel.gameObject;
         }
     }
 
@@ -45,6 +59,8 @@ public class UiManager : MonoBehaviour
     {
         if (GameHUD != null)
             GameHUD.SetActive(true);
+
+        HideKeyPopup();
 
         if (GameManager.instance == null || foodCounterText == null)
             return;
@@ -83,6 +99,21 @@ public class UiManager : MonoBehaviour
         {
             timerText.color = Color.white;
         }
+    }
+
+    public void ShowKeyPopup()
+    {
+        if (keyPopupText != null)
+            keyPopupText.text = keyCollectedMessage;
+
+        if (keyPopupPanel != null)
+            keyPopupPanel.SetActive(true);
+    }
+
+    public void HideKeyPopup()
+    {
+        if (keyPopupPanel != null)
+            keyPopupPanel.SetActive(false);
     }
 
     public void ShowReturnHomeBar()

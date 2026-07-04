@@ -3116,7 +3116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38d96738c0b35489280b5e966bc26f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
   collectVFX: {fileID: 0}
+  rotationSpeed: 90
+  tiltAngle: 30
 --- !u!135 &535245770
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10555,7 +10558,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
       propertyPath: soundEffects.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1463266207334733421, guid: 73f977a6272ceda48aa26bf7473091d6, type: 3}
       propertyPath: musicAudios.Array.data[0].clip
@@ -10997,6 +11000,9 @@ MonoBehaviour:
   foodCounterText: {fileID: 1338769168}
   timerText: {fileID: 775106493}
   returnHomePage: {fileID: 0}
+  keyPopupPanel: {fileID: 0}
+  keyPopupText: {fileID: 0}
+  keyCollectedMessage: Key Collected! Find the chest to get food!
 --- !u!1001 &1806783446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11867,6 +11873,74 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 477624498141550412, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
       propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001001, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001004, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001004, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b68803ccd0d932f4f898f855833d16b2, type: 3}
+    - target: {fileID: 880010001001001004, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001004, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001004, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001004, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_text
+      value: Key Collected! Find the chest to get more food!
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_fontSize
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_fontStyle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_overrideHtmlColors
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 880010001001001008, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_enableVertexGradient
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1162264962731895911, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}

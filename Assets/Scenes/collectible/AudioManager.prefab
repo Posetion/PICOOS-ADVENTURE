@@ -70,6 +70,11 @@ MonoBehaviour:
     volume: 1
     pitchMin: 1.2
     pitchMax: 1.2
+  - name: keyCollected
+    clip: {fileID: 8300000, guid: 5e2090954bece9a42900a1323f5c7c0f, type: 3}
+    volume: 1
+    pitchMin: 1
+    pitchMax: 1
   musicAudios: []
 --- !u!1 &2165187924689252129
 GameObject:
