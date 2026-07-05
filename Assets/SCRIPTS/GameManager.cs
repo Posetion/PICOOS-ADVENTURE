@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -13,6 +13,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool canCompleteLevelFlag = false;
     [SerializeField] private UiManager uiManager;
     [SerializeField] private FinishZone finishZone;
+
+    [Header("Cooking Cutscene")]
+    [SerializeField] private GameObject cookingCutsceneTrigger;
+    [SerializeField] private GameObject cookingCutscene;
+
+
+
     private void Awake()
     {
         if (instance == null)
@@ -122,8 +129,36 @@ public class GameManager : MonoBehaviour
 
     public void TriggerCookingCutScene()
     {
-
+        StartCoroutine(PlayCutsceneThenWin());
     }
+
+
+    private IEnumerator PlayCutsceneThenWin()
+    {
+        // 1. Pause gameplay updates
+        gameActive = false;
+
+        // 2. Hide the Game HUD immediately so the screen is clean
+        if (uiManager == null) uiManager = FindAnyObjectByType<UiManager>();
+        uiManager?.HideHUDForCutscene();
+
+        // 3. Turn on your cutscene GameObject
+        if (cookingCutscene != null)
+        {
+            cookingCutscene.SetActive(true);
+        }
+
+        Debug.Log("Cutscene Started, HUD Hidden...");
+
+        // 4. Wait for the duration of your cutscene (e.g., 5 seconds)
+        yield return new WaitForSeconds(5f);
+
+        Debug.Log("Cutscene Finished. Showing Win Panel.");
+
+        // 5. Finally, reveal the win screen
+        uiManager?.ShowWinPanel();
+    }
+
 
     public bool isGameActive() => gameActive;
     public int GetCurrentFood() => currentFruitScore;
