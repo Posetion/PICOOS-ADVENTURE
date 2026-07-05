@@ -198,4 +198,14 @@ public class UiManager : MonoBehaviour
         if (win != null)
             win.SetActive(true);
     }
+
+
+    // Add this method anywhere inside your UiManager class
+    public void HideHUDForCutscene()
+    {
+        if (GameHUD != null)
+        {
+            GameHUD.SetActive(false);
+        }
+    }
 }

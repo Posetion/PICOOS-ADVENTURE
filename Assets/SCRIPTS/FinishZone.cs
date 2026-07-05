@@ -28,7 +28,7 @@ public class FinishZone : MonoBehaviour
         {
             Debug.Log("Player reached Finish Zone!");
             GameManager.instance?.TriggerCookingCutScene();
-            UiManager.instance.ShowWinPanel();
+
         }
     }
 }
