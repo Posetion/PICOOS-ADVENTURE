@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 095079f34f03719438a98db69822b306
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301549
+  packageName: Basic Tutorial Message
+  packageVersion: 1.0
+  assetPath: Assets/BasicTutorialMessage/Example/Materials/Ground.mat
+  uploadId: 711366

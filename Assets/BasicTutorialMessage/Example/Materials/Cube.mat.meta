@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f938e75e151f372468e98b7b427a9434
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301549
+  packageName: Basic Tutorial Message
+  packageVersion: 1.0
+  assetPath: Assets/BasicTutorialMessage/Example/Materials/Cube.mat
+  uploadId: 711366

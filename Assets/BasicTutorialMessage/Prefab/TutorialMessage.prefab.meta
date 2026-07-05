@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a609dbf7751fe844fb589c637c147e51
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301549
+  packageName: Basic Tutorial Message
+  packageVersion: 1.0
+  assetPath: Assets/BasicTutorialMessage/Prefab/TutorialMessage.prefab
+  uploadId: 711366
