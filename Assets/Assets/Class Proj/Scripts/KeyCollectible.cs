@@ -8,46 +8,40 @@ public class KeyCollectible : MonoBehaviour
     [SerializeField] private GameObject collectVFX;
 
     [Header("Spin Animation")]
-    [SerializeField] private float rotationSpeed = 90f; // degrees per second
-    [SerializeField] private float tiltAngle = 30f;     // forward tilt, collectible style
+    [SerializeField] private float rotationSpeed = 90f;
+    [SerializeField] private float tiltAngle = 30f;
 
     private void Awake()
     {
         if (uiManager == null)
             uiManager = FindAnyObjectByType<UiManager>();
 
-        // Tilt the key forward once; the spin below keeps this tilt.
         transform.rotation = Quaternion.Euler(tiltAngle, transform.eulerAngles.y, 0f);
     }
 
     private void Update()
     {
-        // Spin around the world Y axis so the tilt stays fixed while it rotates.
         transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f, Space.World);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            ChestController.hasKey = true;
+        if (!other.CompareTag("Player"))
+            return;
 
-            if (AudioManager.Instance != null)
-            {
-                AudioManager.Instance.PlaySFX("keyCollected");
-            }
+        ChestController.hasKey = true;
 
-            if (uiManager != null)
-                uiManager.ShowKeyPopup();
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlaySFX("keyCollected");
 
-            if (collectVFX != null)
-            {
-                Instantiate(collectVFX, transform.position, transform.rotation);
-            }
+        if (uiManager != null)
+            uiManager.ShowKeyPopup();
 
-            Debug.Log("Key Collected!");
+        if (collectVFX != null)
+            Instantiate(collectVFX, transform.position, transform.rotation);
 
-            Destroy(gameObject);
-        }
+        Debug.Log("Key Collected!");
+
+        Destroy(gameObject);
     }
 }
