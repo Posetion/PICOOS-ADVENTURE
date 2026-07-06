@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     [Header("Cooking Cutscene")]
     [SerializeField] private GameObject cookingCutsceneTrigger;
     [SerializeField] private GameObject cookingCutscene;
+    [Tooltip("How many seconds to wait before ending the cutscene and showing the win screen")]
+    [SerializeField] private float cutsceneDuration = 5.0f; // <--- NEW VARIABLE HERE!
 
 
 
@@ -26,16 +29,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
-
         else
         {
             Destroy(gameObject);
         }
-
     }
-
-
-
 
     void Start()
     {
@@ -70,7 +68,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void InitializeGame()
     {
         currentFruitScore = 0;
@@ -97,8 +94,6 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
-
-
     public void AddCollectible()
     {
         currentFruitScore++;
@@ -110,7 +105,6 @@ public class GameManager : MonoBehaviour
             finishZone?.ActivateFinishZone();
 
             uiManager?.ShowReturnHomeBar();
-
         }
 
         if (uiManager == null)
@@ -119,19 +113,16 @@ public class GameManager : MonoBehaviour
         UpdateUI();
     }
 
-
     public void UpdateUI()
     {
         uiManager?.UpdateFoodScoreUI(currentFruitScore, totalFruitScore);
         uiManager?.UpdateTimeUI(currentTime);
-
     }
 
     public void TriggerCookingCutScene()
     {
         StartCoroutine(PlayCutsceneThenWin());
     }
-
 
     private IEnumerator PlayCutsceneThenWin()
     {
@@ -150,8 +141,8 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Cutscene Started, HUD Hidden...");
 
-        // 4. Wait for the duration of your cutscene (e.g., 5 seconds)
-        yield return new WaitForSeconds(5f);
+        // 4. Wait for the custom duration set in the Inspector
+        yield return new WaitForSeconds(cutsceneDuration); // <--- UPDATED HERE!
 
         Debug.Log("Cutscene Finished. Showing Win Panel.");
 
@@ -159,17 +150,12 @@ public class GameManager : MonoBehaviour
         uiManager?.ShowWinPanel();
     }
 
-
     public bool isGameActive() => gameActive;
     public int GetCurrentFood() => currentFruitScore;
     public int GetTotalFood() => totalFruitScore;
     public float GetCurrentTime() => currentTime;
-
     public float GetTotalTime() => totalTimeLimit;
 
-
-
-    // Add this method anywhere inside your GameManager class
     public void AddTime(float amount)
     {
         if (!gameActive) return;
@@ -185,6 +171,4 @@ public class GameManager : MonoBehaviour
         Debug.Log("Time added! Current time: " + currentTime);
         UpdateUI();
     }
-
-
 }

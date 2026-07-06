@@ -17194,6 +17194,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 199313115}
     - target: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
+      propertyPath: cutsceneDuration
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
       propertyPath: cookingCutsceneTrigger
       value: 
       objectReference: {fileID: 1590686566}
