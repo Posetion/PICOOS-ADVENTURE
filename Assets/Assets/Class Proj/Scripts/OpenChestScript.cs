@@ -21,14 +21,6 @@ public class ChestInteract : MonoBehaviour
         if (uiManager != null)
             uiManager.HideKeyPopup();
 
-        OnChestReached();
-
-        if (chest != null)
-            chest.OpenChest();
-    }
-
-    public void OnChestReached()
-    {
-        Debug.Log("Player reached the chest!");
+        chest?.OpenChest();
     }
 }
