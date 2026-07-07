@@ -125,20 +125,5 @@ public class SceneController : MonoBehaviour
         Application.Quit();
 #endif
     }
-    /*
-        private void UpdateMusicForScene(int sceneIndex)
-        {
-            // This is no longer needed if you use the coroutine, but keeping it clean just in case:
-            if (AudioManager.Instance == null) return;
 
-            if (sceneIndex == 0)
-            {
-                AudioManager.Instance.PlayMusic("MenuMusic");
-            }
-            else
-            {
-                AudioManager.Instance.PlayMusic("GamePlay");
-            }
-        }
-        */
 }

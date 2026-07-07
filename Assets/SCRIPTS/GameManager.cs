@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private UiManager uiManager;
     [SerializeField] private FinishZone finishZone;
 
+
     [Header("Cooking Cutscene")]
     [SerializeField] private GameObject cookingCutsceneTrigger;
     [SerializeField] private GameObject cookingCutscene;
