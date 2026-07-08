@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool canCompleteLevelFlag = false;
     [SerializeField] private UiManager uiManager;
     [SerializeField] private FinishZone finishZone;
-
+    [SerializeField] private TutomapLeave tutoFinishZone;
 
     [Header("Cooking Cutscene")]
     [SerializeField] private GameObject cookingCutsceneTrigger;
@@ -104,6 +104,8 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("You have collected all the food");
             finishZone?.ActivateFinishZone();
+
+            tutoFinishZone?.ActivateFinishZone();
 
             uiManager?.ShowReturnHomeBar();
         }
