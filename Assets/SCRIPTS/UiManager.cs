@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class UiManager : MonoBehaviour
@@ -8,7 +9,11 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject GameHUD;
     [SerializeField] private TMP_Text foodCounterText;
     [SerializeField] private TMP_Text timerText;
+    [SerializeField] private Slider timeCounterSlider;
+    [SerializeField] private Slider foodCounterSlider;
     [SerializeField] private Animator returnHomePage;
+    [SerializeField]
+    private TMP_Text prompyText;
 
     [Header("Pause Menu")]
     [SerializeField] public GameObject pauseMenu;
@@ -22,6 +27,8 @@ public class UiManager : MonoBehaviour
 
     [Header("Win Menu")]
     [SerializeField] public GameObject win;
+    [SerializeField] public TextMeshProUGUI victoryTimeText;
+    [SerializeField] public GameObject[] stars;
     public static UiManager instance;
 
 
@@ -83,8 +90,8 @@ public class UiManager : MonoBehaviour
 
         foodCounterText.text = $"Food: {GameManager.instance.GetCurrentFood()}/{GameManager.instance.GetTotalFood()}";
 
-
-
+        foodCounterSlider.maxValue = (float)GameManager.instance?.GetTotalFood();
+        timeCounterSlider.maxValue = (float)GameManager.instance?.GetTotalTime()
 
         //timerText.text = $"Food:{GameManager.instance.GetCUrrentTime()}/{GameManager.instance.GetTotalime()}";
 
@@ -97,6 +104,12 @@ public class UiManager : MonoBehaviour
             return;
 
         foodCounterText.text = $"Food: {currentScore}/{totalScore}";
+
+        foodCounterSlider.value = currentScore;
+
+
+
+
     }
     public void UpdateTimeUI(float timeRemaining)
     {
@@ -106,6 +119,10 @@ public class UiManager : MonoBehaviour
         int minutes = Mathf.FloorToInt(timeRemaining / 60f);
         int seconds = Mathf.FloorToInt(timeRemaining % 60f);
         timerText.text = $"{minutes:00}:{seconds:00}";
+
+        timeCounterSlider.value = timeRemaining;
+
+
 
         if (timeRemaining < 10f)
         {
@@ -132,21 +149,20 @@ public class UiManager : MonoBehaviour
             keyPopupPanel.SetActive(false);
     }
 
-    public void ShowReturnHomeBar()
-    {
-        if (returnHomePage != null)
-        {
-            // Option A: If you are using a Trigger parameter named "SlideIn"
-            returnHomePage.SetTrigger("SlideIn");
 
-            // Option B: If you prefer a Boolean parameter instead, uncomment below:
-            // returnHomePage.SetBool("IsOpen", true);
-        }
-        else
-        {
-            Debug.LogWarning("ReturnHomePage Animator reference is missing in UIManager!");
-        }
+
+    public void ShowReturnHomePrompt()
+    {
+        prompyText.text = "Return back to camp!";
+        returnHomePage.SetTrigger("Trigger");
     }
+
+    public void ShowNeedMoreFoodMessage()
+    {
+        prompyText.text = "need more snack for the road";
+        returnHomePage.SetTrigger("Trigger");
+    }
+
 
     public void PauseButton()
     {
@@ -185,7 +201,7 @@ public class UiManager : MonoBehaviour
             gameOver.SetActive(true);
     }
 
-    public void ShowWinPanel(int stars, float currentTime)
+    public void ShowWinPanel(int starsEarned, float currentTime)
     {
         Time.timeScale = 0f;
 
@@ -197,6 +213,26 @@ public class UiManager : MonoBehaviour
 
         if (win != null)
             win.SetActive(true);
+
+
+
+        int minutes = Mathf.FloorToInt(currentTime / 60f);
+        int seconds = Mathf.FloorToInt(currentTime % 60f);
+
+        if (victoryTimeText != null)
+        {
+            victoryTimeText.text = $"Time: {minutes:00}:{seconds:00}";
+        }
+
+        for (int i = 0; i < stars.Length; i++)
+        {
+            stars[i].SetActive(i < starsEarned);
+        }
+
+        Time.timeScale = 0f;
+
+
+
     }
 
 

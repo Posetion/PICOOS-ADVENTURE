@@ -1533,6 +1533,8 @@ PlayableDirector:
     value: {fileID: 999519154}
   - key: {fileID: -8459264488389740275, guid: 5491e769f088ef74b81b7b150cfdd006, type: 2}
     value: {fileID: 1405343294}
+  - key: {fileID: 7380851800836809694, guid: 5491e769f088ef74b81b7b150cfdd006, type: 2}
+    value: {fileID: 437077503}
   m_ExposedReferences:
     m_References:
     - 33ddb4f359194064fbc2d83aef897ac0: {fileID: 1480897414}
@@ -2695,6 +2697,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4322226167225798776, guid: 810dd5e6637527f438f646c23c9f1214, type: 3}
   m_PrefabInstance: {fileID: 842772993}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &437077502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4758815233621151833, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
+  m_PrefabInstance: {fileID: 9052330286560399703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &437077503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437077502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: cd5793695f403f641bfe0ccd1ff521c2, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 437077504}
+          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+          m_MethodName: LevelComplete
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &437077504 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
+  m_PrefabInstance: {fileID: 9052330286560399703}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437077502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec2b5b202f8b5324ea49379cac375a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &442215089 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1882061928368989805, guid: 9d815b9999bfa4e45a8639a6f090e6db, type: 3}
@@ -8856,6 +8904,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8925190298440201630, guid: 16fb34314974e0f4c9e7e5a3bd93d6fb, type: 3}
   m_PrefabInstance: {fileID: 1063645020}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1178910891 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7600349136538758716, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+  m_PrefabInstance: {fileID: 1996946427}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1183573293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15495,6 +15554,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5568679190785297612, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: victoryTimeText
+      value: 
+      objectReference: {fileID: 1178910891}
     - target: {fileID: 6595285663869972425, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
       propertyPath: m_text
       value: 'Resume
@@ -17460,7 +17523,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4758815233621151833, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 437077503}
   m_SourcePrefab: {fileID: 100100000, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

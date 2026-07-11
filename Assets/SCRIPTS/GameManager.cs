@@ -106,8 +106,10 @@ public class GameManager : MonoBehaviour
             finishZone?.ActivateFinishZone();
 
             tutoFinishZone?.ActivateFinishZone();
+            uiManager?.ShowReturnHomePrompt();
 
-            uiManager?.ShowReturnHomeBar();
+
+
         }
 
         if (uiManager == null)
