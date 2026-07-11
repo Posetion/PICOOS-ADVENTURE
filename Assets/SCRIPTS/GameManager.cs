@@ -150,7 +150,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Cutscene Finished. Showing Win Panel.");
 
         // 5. Finally, reveal the win screen
-        uiManager?.ShowWinPanel();
+        uiManager?.ShowWinPanel(CalculateStars(), currentTime);
     }
 
     public bool isGameActive() => gameActive;
@@ -174,4 +174,40 @@ public class GameManager : MonoBehaviour
         Debug.Log("Time added! Current time: " + currentTime);
         UpdateUI();
     }
+
+    public void LevelComplete()
+    {
+        int stars = CalculateStars();
+        int currentLevel = GetCurrentLevelNumber();
+        PlayerPrefs.SetInt($"Level{currentLevel}Complete", 1);
+        PlayerPrefs.SetInt($"Level{currentLevel}Stars", stars);
+        PlayerPrefs.Save();
+        uiManager?.ShowWinPanel(stars, currentTime);
+        AudioManager.Instance?.PlaySFX("win");
+    }
+
+    public int CalculateStars()
+    {
+        float timePercentage = currentTime / totalTimeLimit;
+        if (timePercentage > 0.66f) return 3;
+        if (timePercentage > 0.33f) return 2;
+        return 1;
+
+    }
+
+    public int GetCurrentLevelNumber()
+    {
+        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        if (sceneName.Contains("Level"))
+        {
+            string numberStr = sceneName.Replace("Level", "");
+            if (int.TryParse(numberStr, out int levelNum))
+            {
+                return levelNum;
+            }
+        }
+        return 1;
+    }
+
+
 }

@@ -185,7 +185,7 @@ public class UiManager : MonoBehaviour
             gameOver.SetActive(true);
     }
 
-    public void ShowWinPanel()
+    public void ShowWinPanel(int stars, float currentTime)
     {
         Time.timeScale = 0f;
 

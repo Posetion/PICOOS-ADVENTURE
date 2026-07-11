@@ -17119,6 +17119,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 701801088}
     - target: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
+      propertyPath: cutsceneDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
       propertyPath: cookingCutsceneTrigger
       value: 
       objectReference: {fileID: 2140112591}
@@ -17770,6 +17774,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: ec568c05a161ac54cb02768e6fd560c0, type: 3}
+    - target: {fileID: 7389175839759726290, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7749288369490167365, guid: 5253f2e1521f0f14e998ec1379fa3073, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0.5
