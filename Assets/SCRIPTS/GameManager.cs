@@ -108,8 +108,6 @@ public class GameManager : MonoBehaviour
             tutoFinishZone?.ActivateFinishZone();
             uiManager?.ShowReturnHomePrompt();
 
-
-
         }
 
         if (uiManager == null)

@@ -91,7 +91,7 @@ public class UiManager : MonoBehaviour
         foodCounterText.text = $"Food: {GameManager.instance.GetCurrentFood()}/{GameManager.instance.GetTotalFood()}";
 
         foodCounterSlider.maxValue = (float)GameManager.instance?.GetTotalFood();
-        timeCounterSlider.maxValue = (float)GameManager.instance?.GetTotalTime()
+        timeCounterSlider.maxValue = (float)GameManager.instance?.GetTotalTime();
 
         //timerText.text = $"Food:{GameManager.instance.GetCUrrentTime()}/{GameManager.instance.GetTotalime()}";
 

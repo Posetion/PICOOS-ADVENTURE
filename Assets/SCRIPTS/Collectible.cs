@@ -94,7 +94,7 @@ public class Collectible : MonoBehaviour
 
     private void Collect()
     {
-
+        Debug.Log("Collect() called on " + gameObject.name);
         if (AudioManager.Instance == null)
         {
             Debug.LogError("AudioManager Instance is NULL!");
@@ -104,22 +104,23 @@ public class Collectible : MonoBehaviour
             AudioManager.Instance.PlaySFX("Collect");
         }
         collected = true;
+
         if (GameManager.instance != null)
         {
             GameManager.instance.AddCollectible();
         }
-
+        Debug.Log("1 " + gameObject.name);
 
         if (collectedVFX != null)
         {
             Instantiate(collectedVFX, transform.position, Quaternion.identity);
         }
-
+        Debug.Log("2" + gameObject.name);
 
         OnCollectedEvent.Invoke();
 
         AudioManager.Instance.PlaySFX("Collect");
-
+        Debug.Log("Destroying " + gameObject.name);
         Destroy(gameObject);
     }
 
