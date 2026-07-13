@@ -58,31 +58,25 @@ public class SceneController : MonoBehaviour
 
     public void PauseTime()
     {
-        Time.timeScale = 0f;
-
-        // If a UiManager exists in this scene, trigger its pause setup
         if (UiManager.instance != null)
         {
-            if (UiManager.instance.pauseMenu != null)
-                UiManager.instance.pauseMenu.SetActive(true);
-
-            // Optional: Hide the HUD when paused if you'd like
-            // UiManager.instance.ToggleHUD(false); 
+            UiManager.instance.PauseButton();
+        }
+        else
+        {
+            Time.timeScale = 0f;
         }
     }
 
     public void ResumeTime()
     {
-        Time.timeScale = 1f;
-
-        // If a UiManager exists in this scene, close the pause menu
         if (UiManager.instance != null)
         {
-            if (UiManager.instance.pauseMenu != null)
-                UiManager.instance.pauseMenu.SetActive(false);
-
-            // Optional: Show the HUD back
-            // UiManager.instance.ToggleHUD(true);
+            UiManager.instance.ResumeButton();
+        }
+        else
+        {
+            Time.timeScale = 1f;
         }
     }
 

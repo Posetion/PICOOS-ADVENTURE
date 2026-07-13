@@ -1244,6 +1244,7 @@ MonoBehaviour:
   - {fileID: 2640870363322331516}
   - {fileID: 815703324822407773}
   - {fileID: 5921167302006556473}
+  player: {fileID: 0}
 --- !u!1 &1604631432469676746
 GameObject:
   m_ObjectHideFlags: 0
@@ -4106,9 +4107,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5036094055666446726, guid: df12beb69e86b89439a5f026d45100fd, type: 3}
-        m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: PauseTime
+      - m_Target: {fileID: 5568679190785297612}
+        m_TargetAssemblyTypeName: UiManager, Assembly-CSharp
+        m_MethodName: TogglePause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

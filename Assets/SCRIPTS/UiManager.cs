@@ -1,3 +1,4 @@
+using StarterAssets;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,7 +31,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] public TextMeshProUGUI victoryTimeText;
     [SerializeField] public GameObject[] stars;
     public static UiManager instance;
-
+    [SerializeField] public GameObject player;
 
     void Awake()
     {
@@ -75,6 +76,20 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+
+        if (Time.timeScale == 0)
+        {
+            player.GetComponent<StarterAssetsInputs>().cursorInputForLook = false;
+            player.GetComponent<StarterAssetsInputs>().look = new Vector2(0, 0);
+        }
+        else
+        {
+            player.GetComponent<StarterAssetsInputs>().cursorInputForLook = true;
+        }
 
     }
 
@@ -94,7 +109,7 @@ public class UiManager : MonoBehaviour
         timeCounterSlider.maxValue = (float)GameManager.instance?.GetTotalTime();
 
         //timerText.text = $"Food:{GameManager.instance.GetCUrrentTime()}/{GameManager.instance.GetTotalime()}";
-
+        player = GameObject.FindGameObjectWithTag("Player");
 
 
     }
@@ -171,6 +186,15 @@ public class UiManager : MonoBehaviour
         pauseMenu.SetActive(true);
     }
 
+    public void TogglePause()
+    {
+        bool isPaused = pauseMenu.activeSelf;
+        pauseMenu.SetActive(!isPaused);
+        GameHUD.SetActive(isPaused);
+        Time.timeScale = isPaused ? 1f : 0f;
+    }
+
+
     public void RestartButton()
     {
         SceneController.instance.RestartLevel();
@@ -185,9 +209,18 @@ public class UiManager : MonoBehaviour
     }
     public void ResumeButton()
     {
+        // Centralize all resume actions here
         Time.timeScale = 1f;
-        GameHUD.SetActive(true);
-        pauseMenu.SetActive(false);
+
+        if (GameHUD != null)
+            GameHUD.SetActive(true);
+
+        if (pauseMenu != null)
+            pauseMenu.SetActive(false);
+
+        // If your settings panel is a child of the pause menu, it will hide automatically.
+        // If it's a separate GameObject, make sure to explicitly deactivate it here as well:
+        // settingsPanel.SetActive(false); 
     }
 
     public void ShowGameOver()
