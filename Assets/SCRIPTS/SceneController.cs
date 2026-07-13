@@ -96,16 +96,26 @@ public class SceneController : MonoBehaviour
     public void LoadNextLevel()
     {
         Time.timeScale = 1f;
-        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextIndex = currentIndex + 1;
 
-        if (nextIndex < SceneManager.sceneCountInBuildSettings)
+        // If we are currently on Map 3, do NOT load index 4 (Tutorial). Go to Main Menu instead.
+        if (currentIndex == 3)
+        {
+            Debug.Log("[SceneController] Map 3 completed. Returning to Main Menu instead of Tutorial.");
+            SceneManager.LoadScene(0);
+            return;
+        }
+
+        // Standard next level progression (excluding index 4)
+        if (nextIndex < SceneManager.sceneCountInBuildSettings && nextIndex != 4)
         {
             Debug.Log($"[SceneController] Next Level button clicked. Loading scene {nextIndex}.");
             SceneManager.LoadScene(nextIndex);
         }
         else
         {
-            Debug.Log("[SceneController] No more levels found. Returning to Scene 0.");
+            Debug.Log("[SceneController] No more main levels found. Returning to Scene 0.");
             SceneManager.LoadScene(0);
         }
     }
@@ -114,6 +124,8 @@ public class SceneController : MonoBehaviour
         Time.timeScale = 1f;
         Debug.Log("[SceneController] GoToTitle clicked. Loading scene 0.");
         SceneManager.LoadScene(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
 

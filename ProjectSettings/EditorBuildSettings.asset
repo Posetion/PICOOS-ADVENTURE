@@ -7,10 +7,7 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
-    guid: a08f11f2f3151554a85f3e22aa9f0eee
-  - enabled: 1
-    path: Assets/Pico Tuto Map.unity
-    guid: be145be4c9a2846a39e7723d94adaef6
+    guid: 4a2e9bff4ef3dfe41963c48832823a7e
   - enabled: 1
     path: Assets/Scenes/Map1(Forest).unity
     guid: 84cd689a1d5adad4da79ea9b3bb14afa
@@ -20,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Map3(Desert).unity
     guid: eaa663d2d1adbba4fb82c702c29e9b7d
+  - enabled: 1
+    path: Assets/Pico Tuto Map.unity
+    guid: be145be4c9a2846a39e7723d94adaef6
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9e7be553448fa2546aea5752021cbcf7, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
