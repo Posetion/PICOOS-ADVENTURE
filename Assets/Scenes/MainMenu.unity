@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &83432012 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2932510807208371202, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
+  m_PrefabInstance: {fileID: 2551946705909112113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &129835856
 GameObject:
   m_ObjectHideFlags: 0
@@ -661,6 +672,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df12beb69e86b89439a5f026d45100fd, type: 3}
+--- !u!1 &905377365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8904895981224785765, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
+  m_PrefabInstance: {fileID: 2551946705909112113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &967936348
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +944,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62125825e49febf4a89f76daf85d9ca7, type: 3}
+--- !u!1 &1207138206 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1538297808846500432, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
+  m_PrefabInstance: {fileID: 2551946705909112113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1286588428
 GameObject:
   m_ObjectHideFlags: 0
@@ -1067,6 +1088,32 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1415815582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1067164371726077358, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
+  m_PrefabInstance: {fileID: 2551946705909112113}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1415815587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415815582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5385400e34fcd4aa56c687b7ca3b21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playButton: {fileID: 83432012}
+  mainPanel: {fileID: 1481051726}
+  levelSelectPanel: {fileID: 1207138206}
+  settingsPanel: {fileID: 905377365}
+--- !u!1 &1481051726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1150954422486630176, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
+  m_PrefabInstance: {fileID: 2551946705909112113}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2142590937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1137,9 +1184,17 @@ PrefabInstance:
       value: MainMenuUi
       objectReference: {fileID: 0}
     - target: {fileID: 2932510807208371202, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932510807208371202, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1298465086}
+    - target: {fileID: 2932510807208371202, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene
+      objectReference: {fileID: 0}
     - target: {fileID: 8972296769434076075, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1223,7 +1278,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1067164371726077358, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1415815587}
   m_SourcePrefab: {fileID: 100100000, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
 --- !u!1001 &4989951749067008651
 PrefabInstance:

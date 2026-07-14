@@ -83,6 +83,7 @@ public class UiManager : MonoBehaviour
 
         if (Time.timeScale == 0)
         {
+            Debug.Log("Cursor method has entered");
             player.GetComponent<StarterAssetsInputs>().cursorInputForLook = false;
             player.GetComponent<StarterAssetsInputs>().look = new Vector2(0, 0);
         }
