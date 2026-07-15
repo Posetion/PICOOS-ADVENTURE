@@ -103,7 +103,7 @@ public class MainMenuUI : MonoBehaviour
         if (selectedLevelText != null)
         {
             int levelNumber = currentSelectedLevelIndex + 1;
-            selectedLevelText.text = $"{levelNumber}/3";
+            selectedLevelText.text = $"{levelNumber}/{TOTAL_LEVELS}";
         }
 
         if (playSelectedLevelButton != null)
