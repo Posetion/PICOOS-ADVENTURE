@@ -91,6 +91,18 @@ public class SceneController : MonoBehaviour
     {
         Time.timeScale = 1f;
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
+
+        // --- SAVE PROGRESSION HERE ---
+        // If the player completes a level (assuming levels start at index 1), 
+        // mark "LevelXComplete" as 1 so the Main Menu can detect it.
+        if (currentIndex >= 1)
+        {
+            PlayerPrefs.SetInt($"Level{currentIndex}Complete", 1);
+            PlayerPrefs.Save(); // Ensures data is written to the disk immediately
+            Debug.Log($"[SceneController] Saved completion data: Level{currentIndex}Complete = 1");
+        }
+        // -----------------------------
+
         int nextIndex = currentIndex + 1;
 
         // If we are currently on Map 3, do NOT load index 4 (Tutorial). Go to Main Menu instead.
