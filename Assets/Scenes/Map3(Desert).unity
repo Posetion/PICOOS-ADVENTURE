@@ -11981,6 +11981,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerArmature Variant 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2388744377254465112, guid: 1cd23c1123093d848a847eab096e7c1e, type: 3}
+      propertyPath: MoveSpeed
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388744377254465112, guid: 1cd23c1123093d848a847eab096e7c1e, type: 3}
+      propertyPath: SprintSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2514931851648111209, guid: 1cd23c1123093d848a847eab096e7c1e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.004999995
@@ -17401,7 +17409,7 @@ PrefabInstance:
       objectReference: {fileID: 1002195311}
     - target: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
       propertyPath: totalTimeLimit
-      value: 180
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
       propertyPath: cookingCutscene
