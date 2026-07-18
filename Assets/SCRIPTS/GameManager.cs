@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         InitializeGame();
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -73,6 +74,7 @@ public class GameManager : MonoBehaviour
     {
         currentFruitScore = 0;
         currentTime = totalTimeLimit;
+        
 
         // Include disabled chest spawn collectibles so the total matches the level.
         Collectible[] allCollectibles = FindObjectsByType<Collectible>(
