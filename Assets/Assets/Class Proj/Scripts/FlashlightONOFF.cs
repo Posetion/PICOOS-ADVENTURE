@@ -3,21 +3,30 @@ using UnityEngine.InputSystem;
 
 public class FlashlightONOFF : MonoBehaviour
 {
-    [SerializeField] Light flashlight;
+    [SerializeField] private Light flashlight;
 
     void Start()
     {
-        flashlight = GetComponent<Light>();
+        // If you didn't manually drag a light into the inspector slot, find it dynamically
+        if (flashlight == null)
+        {
+            flashlight = GetComponentInChildren<Light>();
+        }
+
+        // Safety check to prevent errors if a light is entirely missing
+        if (flashlight == null)
+        {
+            Debug.LogError($"[FlashlightONOFF] No Light component found on {gameObject.name} or its children!", this);
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Triggers exactly once per tap, matching how games toggle items
-        if (Keyboard.current.fKey.wasPressedThisFrame)
+        if (flashlight == null) return; // Prevent crashes
+
+        if (Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame)
         {
             flashlight.enabled = !flashlight.enabled;
         }
     }
-
 }

@@ -12,17 +12,44 @@ public class SceneController : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
 
+            // Force cursor settings immediately on startup
+            EnableCursor();
         }
         else
         {
             Destroy(gameObject);
             return;
         }
-
     }
 
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Automatically ensures the cursor stays on whenever any map or scene finishes loading
+        EnableCursor();
+        StartCoroutine(ForceCursorDelayed());
+    }
+    private IEnumerator ForceCursorDelayed()
+    {
+        // Wait until the very end of the frame so other scripts finish their Awake/Start calls
+        yield return new WaitForEndOfFrame();
+        EnableCursor();
+        Debug.Log("[SceneController] Cursor force-enabled at the end of the frame.");
+    }
+    /// <summary>
+    /// Centralized function to keep the cursor active and unlocked
+    /// </summary>
+    private void EnableCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
     private IEnumerator WaitAndPlayMusic(int sceneIndex)
     {
@@ -37,7 +64,6 @@ public class SceneController : MonoBehaviour
             }
             else
             {
-                // Dynamically look for "Level1", "Level2", etc.
                 string trackName = "Level" + sceneIndex;
                 Debug.Log($"[SceneController] Target is Scene {sceneIndex}. Requesting '{trackName}'.");
                 AudioManager.Instance.PlayMusic(trackName);
@@ -49,7 +75,6 @@ public class SceneController : MonoBehaviour
         }
     }
 
-
     public void LoadScene(int sceneIndex)
     {
         Time.timeScale = 1f;
@@ -58,6 +83,7 @@ public class SceneController : MonoBehaviour
 
     public void PauseTime()
     {
+        EnableCursor(); // Ensures cursor remains visible if pausing triggers changes
         if (UiManager.instance != null)
         {
             UiManager.instance.PauseButton();
@@ -70,6 +96,7 @@ public class SceneController : MonoBehaviour
 
     public void ResumeTime()
     {
+        EnableCursor();
         if (UiManager.instance != null)
         {
             UiManager.instance.ResumeButton();
@@ -92,20 +119,15 @@ public class SceneController : MonoBehaviour
         Time.timeScale = 1f;
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
 
-        // --- SAVE PROGRESSION HERE ---
-        // If the player completes a level (assuming levels start at index 1), 
-        // mark "LevelXComplete" as 1 so the Main Menu can detect it.
         if (currentIndex >= 1)
         {
             PlayerPrefs.SetInt($"Level{currentIndex}Complete", 1);
-            PlayerPrefs.Save(); // Ensures data is written to the disk immediately
+            PlayerPrefs.Save();
             Debug.Log($"[SceneController] Saved completion data: Level{currentIndex}Complete = 1");
         }
-        // -----------------------------
 
         int nextIndex = currentIndex + 1;
 
-        // If we are currently on Map 3, do NOT load index 4 (Tutorial). Go to Main Menu instead.
         if (currentIndex == 3)
         {
             Debug.Log("[SceneController] Map 3 completed. Returning to Main Menu instead of Tutorial.");
@@ -113,7 +135,6 @@ public class SceneController : MonoBehaviour
             return;
         }
 
-        // Standard next level progression (excluding index 4)
         if (nextIndex < SceneManager.sceneCountInBuildSettings && nextIndex != 4)
         {
             Debug.Log($"[SceneController] Next Level button clicked. Loading scene {nextIndex}.");
@@ -125,15 +146,13 @@ public class SceneController : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+
     public void GoTotitle()
     {
         Time.timeScale = 1f;
         Debug.Log("[SceneController] GoToTitle clicked. Loading scene 0.");
         SceneManager.LoadScene(0);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
-
 
     public void QuitGame()
     {
@@ -143,5 +162,4 @@ public class SceneController : MonoBehaviour
         Application.Quit();
 #endif
     }
-
 }
