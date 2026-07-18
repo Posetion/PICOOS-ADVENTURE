@@ -26,7 +26,9 @@ public sealed class Map1SceneStartup : MonoBehaviour
         SceneManager.sceneUnloaded += _ => sRanForActiveScene = false;
 
         Scene scene = gameObject.scene;
+        GamePerformanceSettings.ApplyFrameRate();
         Map1ForestTerrainUtility.EnsureTerrainPhysicsAligned(scene);
+        Map1ForestTerrainUtility.ApplyPerformanceSettings(scene);
         RemoveFsSystemRootObjects(scene);
         Physics.SyncTransforms();
         PlaceAllPlayers(scene);

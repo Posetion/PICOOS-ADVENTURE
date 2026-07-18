@@ -19,6 +19,26 @@ public static class Map1ForestTerrainUtility
         }
     }
 
+    public static void ApplyPerformanceSettings(Scene scene)
+    {
+        if (!GamePerformanceSettings.ShouldUseReducedSceneSettings())
+            return;
+
+        Terrain[] terrains = Object.FindObjectsByType<Terrain>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+        for (int i = 0; i < terrains.Length; i++)
+        {
+            Terrain terrain = terrains[i];
+            if (terrain == null || terrain.gameObject.scene != scene)
+                continue;
+
+            terrain.treeDistance = 400f;
+            terrain.treeBillboardDistance = 80f;
+            terrain.detailObjectDistance = 40f;
+            terrain.basemapDistance = 300f;
+            terrain.heightmapPixelError = 8f;
+        }
+    }
+
     static void AlignTerrainTransform(Terrain terrain, Scene scene)
     {
         if (terrain == null || terrain.gameObject.scene != scene || terrain.terrainData == null)

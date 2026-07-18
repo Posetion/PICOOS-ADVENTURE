@@ -1269,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 235714377503860008, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 307480271445134076, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: leftArrowButton
@@ -1381,7 +1381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2946386886959526024, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2946386886959526024, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1485,7 +1485,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5310860265939528405, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5310860265939528405, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1701,7 +1701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192363204548977927, guid: 45c28bc5596b8e245aee3f60029513f5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

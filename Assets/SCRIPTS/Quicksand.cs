@@ -8,6 +8,9 @@ public class QuicksandVolume : MonoBehaviour
     [Tooltip("How much to multiply the player's speed by. (e.g., 0.3 means 30% of normal speed)")]
     [Range(0.1f, 1f)] public float SpeedMultiplier = 0.35f;
 
+    [Tooltip("Jump strength while in quicksand. 1 = normal jump, 0 = no jump.")]
+    [Range(0f, 1f)] public float JumpMultiplier = 0.65f;
+
     // Dictionary to keep track of multiple players (useful for multiplayer) 
     // and store their original configurations.
     private class PlayerSpeedBackup
@@ -22,40 +25,34 @@ public class QuicksandVolume : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the overlapping object has the ThirdPersonController
-        if (other.TryGetComponent<ThirdPersonController>(out var player))
+        ThirdPersonController player = other.GetComponentInParent<ThirdPersonController>();
+        if (player == null)
+            return;
+
+        if (_affectedPlayers.ContainsKey(player))
+            return;
+
+        PlayerSpeedBackup backup = new PlayerSpeedBackup
         {
-            // If they aren't already registered, trap them
-            if (!_affectedPlayers.ContainsKey(player))
-            {
-                // Backup original values
-                PlayerSpeedBackup backup = new PlayerSpeedBackup
-                {
-                    OriginalMoveSpeed = player.MoveSpeed,
-                    OriginalSprintSpeed = player.SprintSpeed,
-                    OriginalJumpHeight = player.JumpHeight,             // Backup jump
-                    OriginalDoubleJumpHeight = player.DoubleJumpHeight   // Backup double jump
-                };
+            OriginalMoveSpeed = player.MoveSpeed,
+            OriginalSprintSpeed = player.SprintSpeed,
+            OriginalJumpHeight = player.JumpHeight,
+            OriginalDoubleJumpHeight = player.DoubleJumpHeight
+        };
 
-                _affectedPlayers.Add(player, backup);
+        _affectedPlayers.Add(player, backup);
 
-                // Apply the slowdown modifier
-                player.MoveSpeed *= SpeedMultiplier;
-                player.SprintSpeed *= SpeedMultiplier;
-
-                // Disable jumping by forcing the heights to 0
-                player.JumpHeight = 0f;
-                player.DoubleJumpHeight = 0f;
-            }
-        }
+        player.MoveSpeed *= SpeedMultiplier;
+        player.SprintSpeed *= SpeedMultiplier;
+        player.JumpHeight = backup.OriginalJumpHeight * JumpMultiplier;
+        player.DoubleJumpHeight = backup.OriginalDoubleJumpHeight * JumpMultiplier;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<ThirdPersonController>(out var player))
-        {
+        ThirdPersonController player = other.GetComponentInParent<ThirdPersonController>();
+        if (player != null)
             ReleasePlayer(player);
-        }
     }
 
     private void ReleasePlayer(ThirdPersonController player)
