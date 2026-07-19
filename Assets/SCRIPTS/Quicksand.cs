@@ -8,17 +8,13 @@ public class QuicksandVolume : MonoBehaviour
     [Tooltip("How much to multiply the player's speed by. (e.g., 0.3 means 30% of normal speed)")]
     [Range(0.1f, 1f)] public float SpeedMultiplier = 0.35f;
 
-    [Tooltip("Jump strength while in quicksand. 1 = normal jump, 0 = no jump.")]
-    [Range(0f, 1f)] public float JumpMultiplier = 0.65f;
-
-    // Dictionary to keep track of multiple players (useful for multiplayer) 
-    // and store their original configurations.
+    // Dictionary to track multiple players and store their original configurations.
     private class PlayerSpeedBackup
     {
         public float OriginalMoveSpeed;
         public float OriginalSprintSpeed;
-        public float OriginalJumpHeight;       // Added to track original jump
-        public float OriginalDoubleJumpHeight; // Added to track original double jump
+        public float OriginalJumpHeight;
+        public float OriginalDoubleJumpHeight;
     }
 
     private Dictionary<ThirdPersonController, PlayerSpeedBackup> _affectedPlayers = new Dictionary<ThirdPersonController, PlayerSpeedBackup>();
@@ -32,6 +28,7 @@ public class QuicksandVolume : MonoBehaviour
         if (_affectedPlayers.ContainsKey(player))
             return;
 
+        // Backup the player's current values
         PlayerSpeedBackup backup = new PlayerSpeedBackup
         {
             OriginalMoveSpeed = player.MoveSpeed,
@@ -42,17 +39,22 @@ public class QuicksandVolume : MonoBehaviour
 
         _affectedPlayers.Add(player, backup);
 
+        // Apply quicksand penalties
         player.MoveSpeed *= SpeedMultiplier;
         player.SprintSpeed *= SpeedMultiplier;
-        player.JumpHeight = backup.OriginalJumpHeight * JumpMultiplier;
-        player.DoubleJumpHeight = backup.OriginalDoubleJumpHeight * JumpMultiplier;
+
+        // Completely disable jumps by turning heights to 0
+        player.JumpHeight = 0f;
+        player.DoubleJumpHeight = 0f;
     }
 
     private void OnTriggerExit(Collider other)
     {
         ThirdPersonController player = other.GetComponentInParent<ThirdPersonController>();
         if (player != null)
+        {
             ReleasePlayer(player);
+        }
     }
 
     private void ReleasePlayer(ThirdPersonController player)
@@ -61,18 +63,18 @@ public class QuicksandVolume : MonoBehaviour
         {
             if (player != null)
             {
-                // Restore original values safely
+                // Restore original values safely when exiting the volume
                 player.MoveSpeed = backup.OriginalMoveSpeed;
                 player.SprintSpeed = backup.OriginalSprintSpeed;
-                player.JumpHeight = backup.OriginalJumpHeight;             // Restore jump
-                player.DoubleJumpHeight = backup.OriginalDoubleJumpHeight; // Restore double jump
+                player.JumpHeight = backup.OriginalJumpHeight;
+                player.DoubleJumpHeight = backup.OriginalDoubleJumpHeight;
             }
             _affectedPlayers.Remove(player);
         }
     }
 
-    // Safety measure: if the quicksand gets destroyed while player is inside, 
-    // restore the player's attributes first.
+    // Safety measure: if the quicksand volume gets disabled or destroyed while the player is inside, 
+    // restore the player's attributes.
     private void OnDisable()
     {
         foreach (var kvp in _affectedPlayers)
@@ -81,8 +83,8 @@ public class QuicksandVolume : MonoBehaviour
             {
                 kvp.Key.MoveSpeed = kvp.Value.OriginalMoveSpeed;
                 kvp.Key.SprintSpeed = kvp.Value.OriginalSprintSpeed;
-                kvp.Key.JumpHeight = kvp.Value.OriginalJumpHeight;             // Restore jump
-                kvp.Key.DoubleJumpHeight = kvp.Value.OriginalDoubleJumpHeight; // Restore double jump
+                kvp.Key.JumpHeight = kvp.Value.OriginalJumpHeight;
+                kvp.Key.DoubleJumpHeight = kvp.Value.OriginalDoubleJumpHeight;
             }
         }
         _affectedPlayers.Clear();
