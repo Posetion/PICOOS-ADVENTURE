@@ -4265,6 +4265,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 472018004}
   m_LocalEulerAnglesHint: {x: 0, y: -8.01, z: 0}
+--- !u!4 &262261666 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9106891249204701254, guid: f98e1c1ed395ea246beebb9859b59beb, type: 3}
+  m_PrefabInstance: {fileID: 286176795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &263225037
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5877,6 +5882,10 @@ PrefabInstance:
       value: -2.6942904
       objectReference: {fileID: 0}
     - target: {fileID: 7557187227225042610, guid: f98e1c1ed395ea246beebb9859b59beb, type: 3}
+      propertyPath: playerTransform
+      value: 
+      objectReference: {fileID: 262261666}
+    - target: {fileID: 7557187227225042610, guid: f98e1c1ed395ea246beebb9859b59beb, type: 3}
       propertyPath: groundLayer.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
@@ -6087,6 +6096,18 @@ PrefabInstance:
     - target: {fileID: 8389151668001869648, guid: f98e1c1ed395ea246beebb9859b59beb, type: 3}
       propertyPath: m_Range
       value: 77.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389151668001869648, guid: f98e1c1ed395ea246beebb9859b59beb, type: 3}
+      propertyPath: m_Color.b
+      value: 0.70661265
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389151668001869648, guid: f98e1c1ed395ea246beebb9859b59beb, type: 3}
+      propertyPath: m_Color.g
+      value: 0.7402786
+      objectReference: {fileID: 0}
+    - target: {fileID: 8389151668001869648, guid: f98e1c1ed395ea246beebb9859b59beb, type: 3}
+      propertyPath: m_Color.r
+      value: 0.745283
       objectReference: {fileID: 0}
     - target: {fileID: 8389151668001869648, guid: f98e1c1ed395ea246beebb9859b59beb, type: 3}
       propertyPath: m_Enabled
