@@ -233,6 +233,9 @@ public class UiManager : MonoBehaviour
 
         if (gameOver != null)
             gameOver.SetActive(true);
+
+        // Stop background music and play game over track
+        AudioManager.Instance?.PlayGameOverMusic("lose"); // Make sure "lose" matches your sound name in Inspector
     }
 
     public void ShowWinPanel(int starsEarned, float currentTime)

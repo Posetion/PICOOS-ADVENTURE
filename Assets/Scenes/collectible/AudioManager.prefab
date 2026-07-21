@@ -96,6 +96,16 @@ MonoBehaviour:
     volume: 0
     pitchMin: 0
     pitchMax: 0
+  - name: win
+    clip: {fileID: 8300000, guid: 936675082dd46374e8a334f18ddfdd84, type: 3}
+    volume: 0
+    pitchMin: 0
+    pitchMax: 0
+  - name: lose
+    clip: {fileID: 8300000, guid: 9b380251a1c4cfd4a87038b545521213, type: 3}
+    volume: 0
+    pitchMin: 0
+    pitchMax: 0
 --- !u!1 &2165187924689252129
 GameObject:
   m_ObjectHideFlags: 0

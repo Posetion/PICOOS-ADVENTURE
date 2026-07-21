@@ -17781,7 +17781,7 @@ PrefabInstance:
       objectReference: {fileID: 401042448}
     - target: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
       propertyPath: totalTimeLimit
-      value: 240
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1347295968000582300, guid: 3892f5f82ae964940961903c8137b2d3, type: 3}
       propertyPath: cookingCutscene

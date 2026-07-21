@@ -257,7 +257,56 @@ public class AudioManager : MonoBehaviour
     }
 
 
+    /// <summary>
+    /// Stops active background music and plays a specific victory song.
+    /// </summary>
+    /// <param name="winSongName">Name matching a Sound entry in 'musicAudios' or 'soundEffects'</param>
+    public void PlayWinMusic(string winSongName)
+    {
+        // 1. Cancel any active music fade coroutine
+        if (activeFadeCoroutine != null)
+        {
+            StopCoroutine(activeFadeCoroutine);
+            activeFadeCoroutine = null;
+        }
 
+        // 2. Stop current background music completely
+        musicAudioSource.Stop();
+
+        // 3. Play the victory song via PlayMusic or PlaySFX
+        // If your win track is in the 'musicAudios' list:
+        PlayMusic(winSongName);
+
+        // Alternative: If your win track is stored in 'soundEffects' list instead, 
+        // comment out PlayMusic above and uncomment this line:
+        // PlaySFX(winSongName);
+    }
+
+
+
+
+    /// <summary>
+    /// Stops active background music and plays the game over track.
+    /// </summary>
+    /// <param name="loseSongName">Name matching a Sound entry in 'musicAudios' or 'soundEffects'</param>
+    public void PlayGameOverMusic(string loseSongName)
+    {
+        // 1. Cancel active fades
+        if (activeFadeCoroutine != null)
+        {
+            StopCoroutine(activeFadeCoroutine);
+            activeFadeCoroutine = null;
+        }
+
+        // 2. Stop current background music completely
+        musicAudioSource.Stop();
+
+        // 3. Play the lose song
+        PlayMusic(loseSongName);
+
+        // Note: If your lose audio clip is stored in 'soundEffects' instead of 'musicAudios',
+        // replace PlayMusic above with: PlaySFX(loseSongName);
+    }
 
 
 

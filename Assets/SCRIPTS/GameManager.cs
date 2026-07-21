@@ -61,11 +61,12 @@ public class GameManager : MonoBehaviour
             currentTime = 0;
             gameActive = false;
 
-            UpdateUI(); // Show 00:00 before stopping
+            UpdateUI();
 
             if (uiManager == null)
                 uiManager = FindAnyObjectByType<UiManager>();
 
+            // This will now handle stopping music and playing the lose track!
             uiManager?.ShowGameOver();
         }
     }
@@ -74,7 +75,7 @@ public class GameManager : MonoBehaviour
     {
         currentFruitScore = 0;
         currentTime = totalTimeLimit;
-        
+
 
         // Include disabled chest spawn collectibles so the total matches the level.
         Collectible[] allCollectibles = FindObjectsByType<Collectible>(
@@ -147,9 +148,13 @@ public class GameManager : MonoBehaviour
         Debug.Log("Cutscene Started, HUD Hidden...");
 
         // 4. Wait for the custom duration set in the Inspector
-        yield return new WaitForSeconds(cutsceneDuration); // <--- UPDATED HERE!
+        yield return new WaitForSeconds(cutsceneDuration);
 
         Debug.Log("Cutscene Finished. Showing Win Panel.");
+
+        // --- AUDIO UPDATE HERE ---
+        // Stop ambient music and play the victory song
+        AudioManager.Instance?.PlayWinMusic("win");
 
         // 5. Finally, reveal the win screen
         uiManager?.ShowWinPanel(CalculateStars(), currentTime);
@@ -184,8 +189,11 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.SetInt($"Level{currentLevel}Complete", 1);
         PlayerPrefs.SetInt($"Level{currentLevel}Stars", stars);
         PlayerPrefs.Save();
+
+        // Stop background music & play victory track
+        AudioManager.Instance?.PlayWinMusic("win");
+
         uiManager?.ShowWinPanel(stars, currentTime);
-        AudioManager.Instance?.PlaySFX("win");
     }
 
     public int CalculateStars()
